@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -38,6 +40,22 @@ class LoginViewController: UIViewController {
 
     }
     
-
+    @IBAction func 点击登录按钮(_ sender: Any) {
+        
+        SVProgressHUD.show()
+        
+        //TODO: 登录并跳转至主页
+        Auth.auth().signIn(withEmail: 邮箱输入框.text!, password: 密码输入框.text!) { (user, error) in
+            if error != nil{
+                print(error!)
+                SVProgressHUD.dismiss()
+            }else{
+                print("登录成功")
+                SVProgressHUD.dismiss()
+                self.performSegue(withIdentifier: "前往首页", sender: self)
+            }
+        }
+    }
+    
 
 }

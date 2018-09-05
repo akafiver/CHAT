@@ -103,6 +103,9 @@
                                 <state key="normal" title="注册">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="点击注册按钮:" destination="W5B-vg-Pya" eventType="touchUpInside" id="A4e-3R-2IP"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="邮箱输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入邮箱/电话" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DSz-G8-mMY">
                                 <rect key="frame" x="67.5" y="245" width="240" height="40"/>
@@ -185,6 +188,9 @@
                                 <state key="normal" title="登录">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="点击登录按钮:" destination="9Eu-QK-thP" eventType="touchUpInside" id="nQS-io-oPt"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="邮箱输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入邮箱/电话" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBX-Dn-LFd">
                                 <rect key="frame" x="67" y="245" width="240" height="40"/>
@@ -240,9 +246,10 @@
                     <view key="view" contentMode="scaleToFill" id="XBO-GV-QIk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.62432596508852112" green="0.89829345229552293" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="HkL-zC-vbu"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5m5-fF-Jab"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3Y-Mz-kdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,7 +257,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="N4H-QM-mg7"/>
+        <segue reference="hvD-8h-khd"/>
         <segue reference="0IQ-Bc-0wZ"/>
         <segue reference="0tu-Fy-ctG"/>
     </inferredMetricsTieBreakers>

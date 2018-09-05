@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import SVProgressHUD
 
 class SignUpViewController: UIViewController {
 
@@ -26,7 +28,7 @@ class SignUpViewController: UIViewController {
         密码输入框.layer.borderWidth = 1;
         密码输入框.layer.cornerRadius = 密码输入框.frame.size.height/2
         
-        //TODO:-登录按钮样式设置
+        //TODO:-注册按钮样式设置
         注册按钮.layer.cornerRadius=注册按钮.frame.size.height/2
         注册按钮.layer.masksToBounds=true
         注册按钮.设置渐变(颜色1: 色值.蓝0E65D7, 颜色2: 色值.淡蓝5D9C5C)
@@ -36,5 +38,23 @@ class SignUpViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func 点击注册按钮(_ sender: AnyObject) {
+        
+        SVProgressHUD.show()
+
+        //TODO: 向Firebase数据库设置新用户，并跳转主页
+        Auth.auth().createUser(withEmail: 邮箱输入框.text!, password: 密码输入框.text!) { (user, error) in
+            if error != nil{
+                print(error!)
+                SVProgressHUD.dismiss()
+            }else{
+                print("注册成功")
+                SVProgressHUD.dismiss()
+                self.performSegue(withIdentifier: "前往首页", sender: self)
+            }
+        }
+    }
+    
     
 }
