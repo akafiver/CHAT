@@ -15,6 +15,7 @@
 		4D1DC0062140132D004D50CB /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D1DC0052140132D004D50CB /* GoogleService-Info (1).plist */; };
 		4D32D15521403FAA00110620 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15421403FAA00110620 /* LoginViewController.swift */; };
 		4D32D15721403FEC00110620 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15621403FEC00110620 /* WelcomePageViewController.swift */; };
+		4D32D15921404C5300110620 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15821404C5300110620 /* SignUpViewController.swift */; };
 		4D9E78A92140294F00C503B0 /* 颜色管理.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E78A82140294F00C503B0 /* 颜色管理.swift */; };
 		4D9E78AB2140297B00C503B0 /* 样式管理.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E78AA2140297B00C503B0 /* 样式管理.swift */; };
 		E5B764BA74F273FDF10651B6 /* Pods_CHAT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4798D87F0C0A8333399D2F86 /* Pods_CHAT.framework */; };
@@ -33,6 +34,7 @@
 		4D1DC0052140132D004D50CB /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		4D32D15421403FAA00110620 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4D32D15621403FEC00110620 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
+		4D32D15821404C5300110620 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4D9E78A82140294F00C503B0 /* 颜色管理.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "颜色管理.swift"; sourceTree = "<group>"; };
 		4D9E78AA2140297B00C503B0 /* 样式管理.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "样式管理.swift"; sourceTree = "<group>"; };
 		EA7916D7BDBCD32C45848577 /* Pods-CHAT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHAT.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHAT/Pods-CHAT.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				4D1DBFF3214012F0004D50CB /* AppDelegate.swift */,
 				4D32D15421403FAA00110620 /* LoginViewController.swift */,
+				4D32D15821404C5300110620 /* SignUpViewController.swift */,
 				4D32D15621403FEC00110620 /* WelcomePageViewController.swift */,
 				4D1DBFF5214012F0004D50CB /* ViewController.swift */,
 			);
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D9E78A92140294F00C503B0 /* 颜色管理.swift in Sources */,
+				4D32D15921404C5300110620 /* SignUpViewController.swift in Sources */,
 				4D1DBFF6214012F0004D50CB /* ViewController.swift in Sources */,
 				4D9E78AB2140297B00C503B0 /* 样式管理.swift in Sources */,
 				4D32D15521403FAA00110620 /* LoginViewController.swift in Sources */,
