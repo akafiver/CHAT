@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var 邮箱输入框: UITextField!
     @IBOutlet weak var 密码输入框: UITextView!
     @IBOutlet weak var 登录按钮: UIButton!
+    @IBOutlet var 登录页面: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,11 @@ class LoginViewController: UIViewController {
         登录按钮.layer.cornerRadius=登录按钮.frame.size.height/2
         登录按钮.layer.masksToBounds=true
         登录按钮.设置渐变(颜色1: 色值.蓝0E65D7, 颜色2: 色值.淡蓝5D9C5C)
+        
+        
+        let tapGesture=UITapGestureRecognizer(target: self, action: #selector(登录页面点击))
+        登录页面.addGestureRecognizer(tapGesture)
+        
         
     }
 
@@ -57,5 +63,9 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @objc func 登录页面点击(){
+        邮箱输入框.endEditing(true)
+        密码输入框.endEditing(true)
+    }
 
 }
