@@ -25,10 +25,10 @@ extension UIView {
 }
 
 struct 色值 {
-    static let 黑 = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1)
-    static let 铁黑4A4A4A = UIColor(red: 74.0/255.0, green: 74.0/255.0, blue: 74.0/255.0, alpha: 1)
-    static let 白 = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1)
-    static let 白FAFAFA = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1)
-    static let 淡蓝5D9C5C = UIColor(red: 93.0/255.0, green: 56.0/255.0, blue: 27.0/255.0, alpha: 1)
-    static let 蓝0E65D7 = UIColor(red: 14.0/255.0, green: 101.0/255.0, blue: 215.0/255.0, alpha: 1)
+    static let 黑 = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+    static let 铁黑4A4A4A = UIColor(red: 74.0/255.0, green: 74.0/255.0, blue: 74.0/255.0, alpha: 1.0)
+    static let 白 = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    static let 白FAFAFA = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1.0)
+    static let 淡蓝5D9C5C = UIColor(red: 93.0/255.0, green: 156.0/255.0, blue: 236.0/255.0, alpha: 1.0)
+    static let 蓝0E65D7 = UIColor(red: 14.0/255.0, green: 101.0/255.0, blue: 215.0/255.0, alpha: 1.0)
 }

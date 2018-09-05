@@ -10,26 +10,23 @@ import UIKit
 
 class WelcomePageViewController: UIViewController {
 
+    @IBOutlet weak var 登录按钮: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        登录按钮.layer.cornerRadius=登录按钮.frame.size.height/2
+        登录按钮.layer.masksToBounds=true
+//        view.设置渐变(颜色1: 色值.白, 颜色2: 色值.白FAFAFA)
+        登录按钮.设置渐变(颜色1: 色值.蓝0E65D7, 颜色2: 色值.淡蓝5D9C5C)
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -27,17 +27,17 @@
                                 <state key="normal" title="注册"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vat-hy-Udh">
-                                <rect key="frame" x="170" y="120" width="35" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="134" y="120" width="108.5" height="64.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="54"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W91-n9-jQR">
-                                <rect key="frame" x="127" y="507" width="120" height="30"/>
+                                <rect key="frame" x="67" y="487" width="240" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="PJs-Ue-Kuv"/>
-                                    <constraint firstAttribute="width" constant="120" id="Uh2-Nq-b84"/>
+                                    <constraint firstAttribute="height" constant="50" id="PJs-Ue-Kuv"/>
+                                    <constraint firstAttribute="width" constant="240" id="Uh2-Nq-b84"/>
                                 </constraints>
                                 <state key="normal" title="登录">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,6 +58,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="登录按钮" destination="W91-n9-jQR" id="kUp-bl-Vpj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,13 +72,26 @@
                     <view key="view" contentMode="scaleToFill" id="Gm0-TL-MOY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ko-WD-8fg">
+                                <rect key="frame" x="170" y="537" width="34" height="30"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="psM-0q-WwX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zte-3P-I4M" firstAttribute="bottom" secondItem="1ko-WD-8fg" secondAttribute="bottom" constant="100" id="51n-sH-qdJ"/>
+                            <constraint firstItem="1ko-WD-8fg" firstAttribute="centerX" secondItem="Gm0-TL-MOY" secondAttribute="centerX" id="nho-js-GIn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zte-3P-I4M"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blg-9A-0ID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="118"/>
+            <point key="canvasLocation" x="1535" y="32"/>
         </scene>
     </scenes>
 </document>
