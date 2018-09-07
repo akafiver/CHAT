@@ -10,12 +10,14 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var 邮箱输入框: UITextField!
     @IBOutlet weak var 密码输入框: UITextField!
     @IBOutlet weak var 注册按钮: UIButton!
+    @IBOutlet var 注册页面: UIView!
     
+    //MARK:- ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +34,10 @@ class SignUpViewController: UIViewController {
         注册按钮.layer.cornerRadius=注册按钮.frame.size.height/2
         注册按钮.layer.masksToBounds=true
         注册按钮.设置渐变(颜色1: 色值.蓝0E65D7, 颜色2: 色值.淡蓝5D9C5C)
+        
+        //TODO:- 页面点击检测代码
+        let tapGesture=UITapGestureRecognizer(target: self, action: #selector(注册页面点击))
+        注册页面.addGestureRecognizer(tapGesture)
        
     }
 
@@ -39,6 +45,7 @@ class SignUpViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    //MARK:- IBAction
     @IBAction func 点击注册按钮(_ sender: AnyObject) {
         
         SVProgressHUD.show()
@@ -48,6 +55,7 @@ class SignUpViewController: UIViewController {
             if error != nil{
                 print(error!)
                 SVProgressHUD.dismiss()
+                AlertController.showAlert(self, tittle: "错误", message: (error?.localizedDescription)!)
             }else{
                 print("注册成功")
                 SVProgressHUD.dismiss()
@@ -56,5 +64,9 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    @objc func 注册页面点击(){
+        邮箱输入框.endEditing(true)
+        密码输入框.endEditing(true)
+    }
     
 }

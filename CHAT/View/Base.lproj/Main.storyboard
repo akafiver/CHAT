@@ -146,6 +146,7 @@
                     <connections>
                         <outlet property="密码输入框" destination="I8C-GX-ARC" id="wov-k8-gfA"/>
                         <outlet property="注册按钮" destination="4eV-8f-U5j" id="wew-fd-EBJ"/>
+                        <outlet property="注册页面" destination="KUb-vR-QWI" id="HZe-ov-9O7"/>
                         <outlet property="邮箱输入框" destination="DSz-G8-mMY" id="b4M-Eo-GSj"/>
                         <segue destination="hZW-uF-nAO" kind="show" identifier="前往首页" id="wAM-ab-d0V"/>
                     </connections>
