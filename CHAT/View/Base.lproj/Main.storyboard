@@ -285,9 +285,6 @@
                     <tabBarItem key="tabBarItem" image="user 图标" selectedImage="user 激活" id="jHp-7A-hbh">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="回到欢迎页" id="2mq-n7-3Qd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvG-ZM-AZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -340,8 +337,8 @@
         <image name="消息 激活" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UiB-IP-C8X"/>
-        <segue reference="k6H-yb-r6N"/>
-        <segue reference="0tu-Fy-ctG"/>
+        <segue reference="wAM-ab-d0V"/>
+        <segue reference="0IQ-Bc-0wZ"/>
+        <segue reference="Nx5-Zc-ubc"/>
     </inferredMetricsTieBreakers>
 </document>
