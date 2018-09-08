@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var 邮箱输入框: UITextField!
@@ -74,11 +75,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "前往首页", sender: self)
             }
+
         }
     }
     
 
-    
     //TODO:- 开始输入:
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.1){

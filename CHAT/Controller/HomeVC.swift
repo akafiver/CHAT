@@ -12,11 +12,12 @@ import Firebase
 class HomeVC: UIViewController {
 
     @IBOutlet weak var 欢迎语: UILabel!
-    let 用户 = Auth.auth().currentUser?.displayName
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        guard let 用户 = Auth.auth().currentUser?.uid else {return}
         欢迎语.text="Hello \(用户))"
 
     }

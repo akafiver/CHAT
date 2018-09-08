@@ -107,7 +107,7 @@
                                     <action selector="点击注册按钮:" destination="W5B-vg-Pya" eventType="touchUpInside" id="A4e-3R-2IP"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="用户名称输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入用户名" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="55u-Ga-SB1">
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="用户名称输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入用户名" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="55u-Ga-SB1">
                                 <rect key="frame" x="67" y="195" width="240" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="IHF-xI-bKC"/>
@@ -120,7 +120,7 @@
                                     <outlet property="delegate" destination="W5B-vg-Pya" id="53P-xN-ANq"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="邮箱输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入邮箱/电话" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DSz-G8-mMY">
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="邮箱输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入邮箱/电话" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DSz-G8-mMY">
                                 <rect key="frame" x="67" y="265" width="240" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Lb1-Q4-9PL"/>
@@ -133,7 +133,7 @@
                                     <outlet property="delegate" destination="W5B-vg-Pya" id="7hy-kN-M1k"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="密码输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I8C-GX-ARC">
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="密码输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="I8C-GX-ARC">
                                 <rect key="frame" x="67" y="335" width="240" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="eqX-Ix-tVa"/>
@@ -141,7 +141,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="W5B-vg-Pya" id="MBe-Ss-6lm"/>
                                 </connections>
@@ -215,7 +215,7 @@
                                     <action selector="点击登录按钮:" destination="9Eu-QK-thP" eventType="touchUpInside" id="nQS-io-oPt"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="邮箱输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入邮箱/电话" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBX-Dn-LFd">
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="邮箱输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入邮箱/电话" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HBX-Dn-LFd">
                                 <rect key="frame" x="67" y="245" width="240" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="hHA-PC-jcl"/>
@@ -228,7 +228,7 @@
                                     <outlet property="delegate" destination="9Eu-QK-thP" id="ce2-FX-JzL"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="密码输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UtG-bL-fWB">
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="密码输入框" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UtG-bL-fWB">
                                 <rect key="frame" x="67" y="315" width="240" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="VBh-7C-Yw1"/>
@@ -236,7 +236,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="9Eu-QK-thP" id="qU9-0H-Xm3"/>
                                 </connections>
@@ -313,17 +313,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKm-9z-z6F">
-                                <rect key="frame" x="156" y="318" width="62" height="30"/>
+                                <rect key="frame" x="156" y="548" width="62" height="30"/>
                                 <state key="normal" title="登出账户"/>
                                 <connections>
                                     <action selector="点击登出按钮:" destination="l3L-SJ-ek8" eventType="touchUpInside" id="rml-NO-Fnh"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dmb-SZ-hmC">
+                                <rect key="frame" x="137" y="90" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="JMj-6p-e99"/>
+                                    <constraint firstAttribute="width" constant="100" id="nyc-uP-g4f"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EKm-9z-z6F" firstAttribute="centerX" secondItem="zQf-xl-v31" secondAttribute="centerX" id="Dtc-ee-kJ3"/>
-                            <constraint firstItem="EKm-9z-z6F" firstAttribute="centerY" secondItem="zQf-xl-v31" secondAttribute="centerY" id="vI9-wi-pbt"/>
+                            <constraint firstItem="fM1-8j-8rq" firstAttribute="bottom" secondItem="EKm-9z-z6F" secondAttribute="bottom" constant="40" id="MHJ-sU-FvG"/>
+                            <constraint firstItem="dmb-SZ-hmC" firstAttribute="top" secondItem="fM1-8j-8rq" secondAttribute="top" constant="70" id="Y8v-0g-Z5K"/>
+                            <constraint firstItem="dmb-SZ-hmC" firstAttribute="centerX" secondItem="zQf-xl-v31" secondAttribute="centerX" id="qYb-wz-LnQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fM1-8j-8rq"/>
                     </view>
@@ -333,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvG-ZM-AZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3566" y="819"/>
+            <point key="canvasLocation" x="3565.5999999999999" y="818.14092953523243"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Xth-zu-HqD">
@@ -382,7 +391,7 @@
         <image name="消息 激活" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wAM-ab-d0V"/>
+        <segue reference="UiB-IP-C8X"/>
         <segue reference="0IQ-Bc-0wZ"/>
         <segue reference="0tu-Fy-ctG"/>
     </inferredMetricsTieBreakers>
