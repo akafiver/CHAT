@@ -12,6 +12,7 @@ import SVProgressHUD
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var 用户名称输入框: UITextField!
     @IBOutlet weak var 邮箱输入框: UITextField!
     @IBOutlet weak var 密码输入框: UITextField!
     @IBOutlet weak var 注册按钮: UIButton!
@@ -30,6 +31,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         密码输入框.layer.borderWidth = 1;
         密码输入框.layer.cornerRadius = 密码输入框.frame.size.height/2
         
+        用户名称输入框.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.2).cgColor;
+        用户名称输入框.layer.borderWidth = 1;
+        用户名称输入框.layer.cornerRadius = 用户名称输入框.frame.size.height/2
+        
         //TODO:-注册按钮样式设置
         注册按钮.layer.cornerRadius=注册按钮.frame.size.height/2
         注册按钮.layer.masksToBounds=true
@@ -40,6 +45,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         注册页面.addGestureRecognizer(tapGesture)
        
     }
+    
+    @objc func 注册页面点击(){
+        用户名称输入框.endEditing(true)
+        邮箱输入框.endEditing(true)
+        密码输入框.endEditing(true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,25 +59,44 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     //MARK:- IBAction
     @IBAction func 点击注册按钮(_ sender: AnyObject) {
         
-        SVProgressHUD.show()
+        //TODO:- 注册资料输入检测
+        if let 用户名称输入 = 用户名称输入框.text, 用户名称输入 != "",
+        let 邮箱输入 = 邮箱输入框.text, 邮箱输入 != "",
+            let 密码输入 = 密码输入框.text, 密码输入 != ""{
+            
+            SVProgressHUD.show()
 
-        //TODO: 向Firebase数据库设置新用户，并跳转主页
-        Auth.auth().createUser(withEmail: 邮箱输入框.text!, password: 密码输入框.text!) { (user, error) in
-            if error != nil{
-                print(error!)
-                SVProgressHUD.dismiss()
-                AlertController.showAlert(self, tittle: "错误", message: (error?.localizedDescription)!)
-            }else{
-                print("注册成功")
-                SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "前往首页", sender: self)
+            //TODO: 向Firebase数据库设置新用户，并跳转主页
+            Auth.auth().createUser(withEmail: 邮箱输入框.text!, password: 密码输入框.text!){ (user, error) in
+                if error != nil{
+                    print(error!)
+                    SVProgressHUD.dismiss()
+                    AlertController.showAlert(self, tittle: "错误", message: (error?.localizedDescription)!)
+                }else{
+                    print("注册成功")
+                    SVProgressHUD.dismiss()
+                    self.performSegue(withIdentifier: "前往首页", sender: self)
+                    }
             }
+        }else {
+            AlertController.showAlert(self, tittle: "错误", message: "请输入完整资料")
+            return
         }
+        
+        let userID = Auth.auth().currentUser!.uid
+        print(userID)
+        
+        
+//        let 用户名变更 = Auth.auth().currentUser?.createProfileChangeRequest()
+//        UserProfileChangeRequest.willChangeValue(forKey: 用户名称输入框.text!)
+  
     }
     
-    @objc func 注册页面点击(){
-        邮箱输入框.endEditing(true)
-        密码输入框.endEditing(true)
+    //TODO:- 点击回车收回键盘:
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
+
     
 }
