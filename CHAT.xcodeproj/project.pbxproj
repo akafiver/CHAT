@@ -12,11 +12,13 @@
 		4D1DBFF9214012F0004D50CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D1DBFF7214012F0004D50CB /* Main.storyboard */; };
 		4D1DBFFB214012F0004D50CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D1DBFFA214012F0004D50CB /* Assets.xcassets */; };
 		4D1DBFFE214012F0004D50CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D1DBFFC214012F0004D50CB /* LaunchScreen.storyboard */; };
+		4D281F682144257700FDF1DD /* TabBarMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D281F672144257700FDF1DD /* TabBarMain.storyboard */; };
 		4D32D15521403FAA00110620 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15421403FAA00110620 /* LoginViewController.swift */; };
 		4D32D15721403FEC00110620 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15621403FEC00110620 /* WelcomePageViewController.swift */; };
 		4D32D15921404C5300110620 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15821404C5300110620 /* SignUpViewController.swift */; };
 		4D32D15B214057AA00110620 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D15A214057AA00110620 /* GoogleService-Info.plist */; };
 		4D32D15D21405F8100110620 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15C21405F8100110620 /* UserProfileViewController.swift */; };
+		4D9A1C0F21453EDB007B8AED /* AddNewFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9A1C0E21453EDB007B8AED /* AddNewFeedVC.swift */; };
 		4D9E78A92140294F00C503B0 /* 颜色管理.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E78A82140294F00C503B0 /* 颜色管理.swift */; };
 		4D9E78AB2140297B00C503B0 /* 样式管理.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E78AA2140297B00C503B0 /* 样式管理.swift */; };
 		4DA286EC2142BE9C00E6FCF1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA286EB2142BE9C00E6FCF1 /* AlertController.swift */; };
@@ -34,11 +36,13 @@
 		4D1DBFFA214012F0004D50CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D1DBFFD214012F0004D50CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D1DBFFF214012F0004D50CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D281F672144257700FDF1DD /* TabBarMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarMain.storyboard; sourceTree = "<group>"; };
 		4D32D15421403FAA00110620 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4D32D15621403FEC00110620 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		4D32D15821404C5300110620 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4D32D15A214057AA00110620 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D32D15C21405F8100110620 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		4D9A1C0E21453EDB007B8AED /* AddNewFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFeedVC.swift; sourceTree = "<group>"; };
 		4D9E78A82140294F00C503B0 /* 颜色管理.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "颜色管理.swift"; sourceTree = "<group>"; };
 		4D9E78AA2140297B00C503B0 /* 样式管理.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "样式管理.swift"; sourceTree = "<group>"; };
 		4DA286EB2142BE9C00E6FCF1 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				4D32D15421403FAA00110620 /* LoginViewController.swift */,
 				4D32D15821404C5300110620 /* SignUpViewController.swift */,
 				4DA286EB2142BE9C00E6FCF1 /* AlertController.swift */,
+				4D9A1C0E21453EDB007B8AED /* AddNewFeedVC.swift */,
 				4D32D15621403FEC00110620 /* WelcomePageViewController.swift */,
 				4DA286EF2142EDD100E6FCF1 /* HomeVC.swift */,
 				4D32D15C21405F8100110620 /* UserProfileViewController.swift */,
@@ -108,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				4D1DBFF7214012F0004D50CB /* Main.storyboard */,
+				4D281F672144257700FDF1DD /* TabBarMain.storyboard */,
 				4D1DBFFC214012F0004D50CB /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -201,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D32D15B214057AA00110620 /* GoogleService-Info.plist in Resources */,
+				4D281F682144257700FDF1DD /* TabBarMain.storyboard in Resources */,
 				4D1DBFFE214012F0004D50CB /* LaunchScreen.storyboard in Resources */,
 				4D1DBFFB214012F0004D50CB /* Assets.xcassets in Resources */,
 				4D1DBFF9214012F0004D50CB /* Main.storyboard in Resources */,
@@ -273,6 +280,7 @@
 				4D32D15521403FAA00110620 /* LoginViewController.swift in Sources */,
 				4D32D15721403FEC00110620 /* WelcomePageViewController.swift in Sources */,
 				4D1DBFF4214012F0004D50CB /* AppDelegate.swift in Sources */,
+				4D9A1C0F21453EDB007B8AED /* AddNewFeedVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        guard let 用户 = Auth.auth().currentUser?.uid else {return}
+        let 用户 = Auth.auth().currentUser?.email
         欢迎语.text="Hello \(用户))"
 
     }

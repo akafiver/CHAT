@@ -62,7 +62,7 @@
                     </view>
                     <connections>
                         <outlet property="登录按钮" destination="W91-n9-jQR" id="kUp-bl-Vpj"/>
-                        <segue destination="hZW-uF-nAO" kind="show" identifier="前往首页" id="sxd-qP-xbX"/>
+                        <segue destination="BVD-Tm-uCx" kind="show" identifier="前往首页" id="sxd-qP-xbX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -170,7 +170,7 @@
                         <outlet property="注册页面" destination="KUb-vR-QWI" id="HZe-ov-9O7"/>
                         <outlet property="用户名称输入框" destination="55u-Ga-SB1" id="z7h-UN-d8k"/>
                         <outlet property="邮箱输入框" destination="DSz-G8-mMY" id="b4M-Eo-GSj"/>
-                        <segue destination="hZW-uF-nAO" kind="show" identifier="前往首页" id="wAM-ab-d0V"/>
+                        <segue destination="BVD-Tm-uCx" kind="show" identifier="前往首页" id="wAM-ab-d0V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ON-zu-ylL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,136 +262,24 @@
                         <outlet property="登录按钮" destination="iQk-d0-aLl" id="Lv0-TL-Hq8"/>
                         <outlet property="登录页面" destination="Gm0-TL-MOY" id="InW-FZ-9GM"/>
                         <outlet property="邮箱输入框" destination="HBX-Dn-LFd" id="twd-lQ-Ef1"/>
-                        <segue destination="hZW-uF-nAO" kind="show" identifier="前往首页" id="UiB-IP-C8X"/>
+                        <segue destination="BVD-Tm-uCx" kind="show" identifier="前往首页" id="UiB-IP-C8X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blg-9A-0ID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1461.5999999999999" y="-384.55772113943033"/>
         </scene>
-        <!--HomeVC-->
-        <scene sceneID="3tw-7l-tDT">
+        <!--TabBarMain-->
+        <scene sceneID="J11-9l-GcZ">
             <objects>
-                <viewController id="aND-hE-YXD" customClass="HomeVC" customModule="CHAT" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XBO-GV-QIk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="欢迎语" text="Hello someone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5V-u5-E7X">
-                                <rect key="frame" x="130.5" y="80" width="114" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.62432596508852112" green="0.89829345229552293" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="X5V-u5-E7X" firstAttribute="centerX" secondItem="XBO-GV-QIk" secondAttribute="centerX" id="2jh-lu-dNI"/>
-                            <constraint firstItem="X5V-u5-E7X" firstAttribute="top" secondItem="HkL-zC-vbu" secondAttribute="top" constant="60" id="pjs-XK-5jk"/>
-                            <constraint firstItem="X5V-u5-E7X" firstAttribute="centerX" secondItem="XBO-GV-QIk" secondAttribute="centerX" id="t5k-bm-i3d"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="HkL-zC-vbu"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" image="home" selectedImage="home 激活" id="4kt-Hm-wv8">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                    </tabBarItem>
-                    <navigationItem key="navigationItem" id="5m5-fF-Jab"/>
-                    <connections>
-                        <outlet property="欢迎语" destination="X5V-u5-E7X" id="EQ0-ZH-jat"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O3Y-Mz-kdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="TabBarMain" id="BVD-Tm-uCx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a9E-T4-7dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3545" y="-701"/>
-        </scene>
-        <!--User Profile View Controller-->
-        <scene sceneID="CEk-BO-Pfc">
-            <objects>
-                <viewController id="l3L-SJ-ek8" customClass="UserProfileViewController" customModule="CHAT" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zQf-xl-v31">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKm-9z-z6F">
-                                <rect key="frame" x="156" y="548" width="62" height="30"/>
-                                <state key="normal" title="登出账户"/>
-                                <connections>
-                                    <action selector="点击登出按钮:" destination="l3L-SJ-ek8" eventType="touchUpInside" id="rml-NO-Fnh"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dmb-SZ-hmC">
-                                <rect key="frame" x="137" y="90" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="JMj-6p-e99"/>
-                                    <constraint firstAttribute="width" constant="100" id="nyc-uP-g4f"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="EKm-9z-z6F" firstAttribute="centerX" secondItem="zQf-xl-v31" secondAttribute="centerX" id="Dtc-ee-kJ3"/>
-                            <constraint firstItem="fM1-8j-8rq" firstAttribute="bottom" secondItem="EKm-9z-z6F" secondAttribute="bottom" constant="40" id="MHJ-sU-FvG"/>
-                            <constraint firstItem="dmb-SZ-hmC" firstAttribute="top" secondItem="fM1-8j-8rq" secondAttribute="top" constant="70" id="Y8v-0g-Z5K"/>
-                            <constraint firstItem="dmb-SZ-hmC" firstAttribute="centerX" secondItem="zQf-xl-v31" secondAttribute="centerX" id="qYb-wz-LnQ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="fM1-8j-8rq"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" image="user 图标" selectedImage="user 激活" id="jHp-7A-hbh">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gvG-ZM-AZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3565.5999999999999" y="818.14092953523243"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Xth-zu-HqD">
-            <objects>
-                <viewController id="jZE-a9-Gnd" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tzw-eC-6mG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="8hC-xQ-Tjl"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="消息" selectedImage="消息 激活" id="Z4q-OJ-JD4">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XoH-I4-0AT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3566" y="54"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="7zY-m9-sCd">
-            <objects>
-                <tabBarController id="hZW-uF-nAO" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DWc-WV-KPD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="aND-hE-YXD" kind="relationship" relationship="viewControllers" id="Nir-47-eA9"/>
-                        <segue destination="jZE-a9-Gnd" kind="relationship" relationship="viewControllers" id="dl6-yK-jU3"/>
-                        <segue destination="l3L-SJ-ek8" kind="relationship" relationship="viewControllers" id="tbT-iR-B4t"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3n1-4k-udb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2497" y="54"/>
+            <point key="canvasLocation" x="2538" y="54"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="home" width="24" height="24"/>
-        <image name="home 激活" width="22" height="22"/>
-        <image name="user 图标" width="23" height="23"/>
-        <image name="user 激活" width="21" height="22"/>
-        <image name="消息" width="24" height="24"/>
-        <image name="消息 激活" width="24" height="24"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UiB-IP-C8X"/>
+        <segue reference="wAM-ab-d0V"/>
         <segue reference="0IQ-Bc-0wZ"/>
         <segue reference="0tu-Fy-ctG"/>
     </inferredMetricsTieBreakers>

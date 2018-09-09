@@ -65,7 +65,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
 //MARK:- FUNC
         //TODO:- 登录并跳转至主页
-        Auth.auth().signIn(withEmail: 邮箱输入框.text!, password: 密码输入框.text!) { (user, error) in
+        Auth.auth().signIn(withEmail: "1@1.com", password: "123456") { (user, error) in
             if error != nil{
                 print(error!)
                 SVProgressHUD.dismiss()
@@ -77,6 +77,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
 
         }
+//        Auth.auth().signIn(withEmail: 邮箱输入框.text!, password: 密码输入框.text!) { (user, error) in
+//            if error != nil{
+//                print(error!)
+//                SVProgressHUD.dismiss()
+//                AlertController.showAlert(self, tittle: "错误", message: (error?.localizedDescription)!)
+//            }else{
+//                print("登录成功")
+//                SVProgressHUD.dismiss()
+//                self.performSegue(withIdentifier: "前往首页", sender: self)
+//            }
+//
+//        }
     }
     
 
