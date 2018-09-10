@@ -9,6 +9,8 @@
 import UIKit
 
 class AlertController{
+    
+    let feedFunction=AddNewFeedVC()
 
     //MARK:-登录注册页错误弹窗
     static func showAlert (_ inViewController: UIViewController, tittle: String, message: String){
@@ -17,5 +19,7 @@ class AlertController{
         alert.addAction(action)
         inViewController.present(alert, animated: true, completion: nil)
     }
+    
+    
 
 }

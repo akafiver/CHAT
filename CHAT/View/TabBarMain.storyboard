@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeVC-->
+        <!--Home-->
         <scene sceneID="3tw-7l-tDT">
             <objects>
                 <viewController storyboardIdentifier="HomePage" id="aND-hE-YXD" customClass="HomeVC" customModule="CHAT" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,31 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="欢迎语" text="Hello someone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5V-u5-E7X">
-                                <rect key="frame" x="130.5" y="124" width="114" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ft9-f3-wa3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.62432596508852112" green="0.89829345229552293" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="X5V-u5-E7X" firstAttribute="centerX" secondItem="XBO-GV-QIk" secondAttribute="centerX" id="2jh-lu-dNI"/>
-                            <constraint firstItem="X5V-u5-E7X" firstAttribute="top" secondItem="HkL-zC-vbu" secondAttribute="top" constant="60" id="pjs-XK-5jk"/>
-                            <constraint firstItem="X5V-u5-E7X" firstAttribute="centerX" secondItem="XBO-GV-QIk" secondAttribute="centerX" id="t5k-bm-i3d"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HkL-zC-vbu"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5m5-fF-Jab"/>
-                    <connections>
-                        <outlet property="欢迎语" destination="X5V-u5-E7X" id="EQ0-ZH-jat"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Home" id="5m5-fF-Jab"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3Y-Mz-kdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4785" y="-1015"/>
+            <point key="canvasLocation" x="4784.8000000000002" y="-1015.1424287856073"/>
         </scene>
-        <!--User Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="CEk-BO-Pfc">
             <objects>
                 <viewController id="l3L-SJ-ek8" customClass="UserProfileViewController" customModule="CHAT" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,13 +56,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fM1-8j-8rq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QqB-0F-o3b"/>
+                    <navigationItem key="navigationItem" title="Profile" id="QqB-0F-o3b"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvG-ZM-AZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4785" y="1068"/>
         </scene>
-        <!--View Controller-->
+        <!--Messages-->
         <scene sceneID="Xth-zu-HqD">
             <objects>
                 <viewController id="jZE-a9-Gnd" sceneMemberID="viewController">
@@ -81,7 +72,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8hC-xQ-Tjl"/>
                     </view>
-                    <navigationItem key="navigationItem" id="liu-6i-tAq"/>
+                    <navigationItem key="navigationItem" title="Messages" id="liu-6i-tAq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XoH-I4-0AT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="3814" y="-1015"/>
         </scene>
-        <!--Add New FeedVC-->
+        <!--New Feed-->
         <scene sceneID="8B7-x1-zto">
             <objects>
                 <viewController id="3PR-nC-zIh" customClass="AddNewFeedVC" customModule="CHAT" customModuleProvider="target" sceneMemberID="viewController">
@@ -191,7 +182,6 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8P0-iL-CNx">
                                         <rect key="frame" x="120" y="10" width="245" height="140"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -217,16 +207,24 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9oS-Qc-Err"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3ca-Gw-Joo">
+                    <navigationItem key="navigationItem" title="New Feed" id="3ca-Gw-Joo">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="refresh" id="5bw-Gt-ygt">
+                            <connections>
+                                <action selector="removeFeedButton:" destination="3PR-nC-zIh" id="cTg-5P-oYE"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="分享" id="ZT0-vK-6jc">
                             <connections>
-                                <action selector="ShareButton:" destination="3PR-nC-zIh" id="aP7-bp-Qxj"/>
+                                <action selector="ShareButton:" destination="3PR-nC-zIh" id="9Y9-Bu-phn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="FeedImage" destination="uIn-RS-Rtq" id="TDs-ep-Aw0"/>
                         <outlet property="FeedTF" destination="8P0-iL-CNx" id="oFa-qM-N9d"/>
+                        <outlet property="ShareButton" destination="ZT0-vK-6jc" id="x9f-Aj-HCy"/>
+                        <outlet property="removedButton" destination="5bw-Gt-ygt" id="rNp-dy-mqB"/>
+                        <outlet property="新建帖子页面" destination="Mal-ec-HZy" id="lkH-2P-2JA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cw6-WV-q7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
