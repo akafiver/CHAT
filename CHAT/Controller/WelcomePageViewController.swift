@@ -16,10 +16,7 @@ class WelcomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        登录按钮.layer.cornerRadius=登录按钮.frame.size.height/2
-        登录按钮.layer.masksToBounds=true
-//        view.设置渐变(颜色1: 色值.白, 颜色2: 色值.白FAFAFA)
-        登录按钮.设置渐变(颜色1: 色值.蓝0E65D7, 颜色2: 色值.淡蓝5D9C5C)
+        样式管理.注册登录按钮样式(layer: 登录按钮)
 
     }
 

@@ -9,23 +9,49 @@
 import UIKit
 import Firebase
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController,UITableViewDelegate {
 
-    @IBOutlet weak var 欢迎语: UILabel!
     
+    var postArray=[Post]()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        let 用户 = Auth.auth().currentUser?.email
-        欢迎语.text="Hello \(用户))"
-
+        tableView.dataSource=self
+        loadPosts()
     }
 
+    
+    func loadPosts(){
+        Database.database().reference().child("posts").observe(.childAdded) { (snapshot:DataSnapshot) in
+            if let snapshotValue = snapshot.value as? [String:Any]{
+            let text = snapshotValue["text"] as! String
+            let url = snapshotValue["photoUrl"] as! String
+            let post = Post(feedText: text, imageUrl: url)
+            self.postArray.append(post)
+            self.tableView.reloadData()
+            }
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
     }
 
 
+}
+
+extension HomeVC:UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath)
+        cell.textLabel?.text=postArray[indexPath.row].text
+        return cell
+    }
 }

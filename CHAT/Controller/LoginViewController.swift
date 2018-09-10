@@ -14,7 +14,7 @@ import SVProgressHUD
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var 邮箱输入框: UITextField!
-    @IBOutlet weak var 密码输入框: UITextView!
+    @IBOutlet weak var 密码输入框: UITextField!
     @IBOutlet weak var 登录按钮: UIButton!
     @IBOutlet var 登录页面: UIView!
     
@@ -28,18 +28,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         //TODO:- 输入框样式设置
-        邮箱输入框.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.2).cgColor;
-        邮箱输入框.layer.borderWidth = 1;
-        邮箱输入框.layer.cornerRadius = 邮箱输入框.frame.size.height/2
-        
-        密码输入框.layer.borderColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.2).cgColor;
-        密码输入框.layer.borderWidth = 1;
-        密码输入框.layer.cornerRadius = 密码输入框.frame.size.height/2
+        样式管理.邮箱密码输入框样式(layer: 邮箱输入框)
+        样式管理.邮箱密码输入框样式(layer: 密码输入框)
         
         //TODO:- 登录按钮样式设置
-        登录按钮.layer.cornerRadius=登录按钮.frame.size.height/2
-        登录按钮.layer.masksToBounds=true
-        登录按钮.设置渐变(颜色1: 色值.蓝0E65D7, 颜色2: 色值.淡蓝5D9C5C)
+        样式管理.注册登录按钮样式(layer: 登录按钮)
         
         //TODO:- 页面点击检测代码
         let tapGesture=UITapGestureRecognizer(target: self, action: #selector(登录页面点击))
