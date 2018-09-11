@@ -13,8 +13,10 @@ import SDWebImage
 class HomeVC: UIViewController,UITableViewDelegate {
 
     var postArray=[Post]()
+    var usersArray=[User]()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingAnimat: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,21 +25,39 @@ class HomeVC: UIViewController,UITableViewDelegate {
         tableView.dataSource=self
         loadPosts()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden=false
+    }
 
+    @IBAction func buttonToComments(_ sender: Any) {
+        performSegue(withIdentifier: "toCommentsPage", sender: nil)
+    }
     
     func loadPosts(){
+        loadingAnimat.startAnimating()
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot:DataSnapshot) in
             if let snapshotValue = snapshot.value as? [String:Any]{
-            let text = snapshotValue["text"] as! String
-            let url = snapshotValue["photoUrl"] as! String
-//            let uid = snapshotValue["userID"] as! String
-            let post = Post(feedText: text, imageUrl: url)
-            self.postArray.append(post)
-            self.tableView.reloadData()
+                let 新帖子=Post.PostPhoto转换值(dict: snapshotValue)
+                self.user读取(uid: 新帖子.uid!, completed: {
+                self.postArray.append(新帖子)
+                self.loadingAnimat.stopAnimating()
+                self.tableView.reloadData()
+                })
             }
         }
     }
     
+    func user读取(uid:String, completed:  @escaping () -> Void ) {
+        Database.database().reference().child("users").child("profile").child(uid).observeSingleEvent(of: DataEventType.value, with: {
+            snapshot in
+            if let snapshotValue = snapshot.value as? [String:Any]{
+                let user = User.transformUser(dict: snapshotValue)
+                self.usersArray.append(user)
+                completed()
+                }
+        })
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,7 +75,9 @@ extension HomeVC:UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! HomeFeedableViewCell
         let post=postArray[indexPath.row]
-        cell.updateCellView(post: post)
+        let user=usersArray[indexPath.row]
+        cell.post=post
+        cell.user=user
 //        cell.textLabel?.text=postArray[indexPath.row].text
 //        样式管理.头像样式(layer: cell.userAvatarV)
 //        样式管理.图片样式(layer: cell.feedImgV)

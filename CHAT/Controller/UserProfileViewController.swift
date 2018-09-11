@@ -11,16 +11,18 @@ import Firebase
 
 class UserProfileViewController: UIViewController {
 
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-      
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
   
     }
+    
     
 //MARK:- 登出
     
@@ -37,5 +39,6 @@ class UserProfileViewController: UIViewController {
         self.present(登录页面, animated: true, completion: nil)
     }
     
+
 
 }

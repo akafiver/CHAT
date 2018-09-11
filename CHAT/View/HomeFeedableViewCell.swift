@@ -18,34 +18,43 @@ class HomeFeedableViewCell: UITableViewCell {
     @IBOutlet weak var likeNom: UILabel!
     @IBOutlet weak var commentsNom: UILabel!
     
-    
-    func updateCellView(post:Post){
-        userNameLab.text="leon 玛莎拉蒂"
-        userAvatarV.image=UIImage(named: "avatar.jpg")
-        feedText.text=post.text
-        let photoUrlString = post.photoUrl
-        let photoUrl = URL(string: photoUrlString)
-        self.feedImgV.sd_setImage(with: photoUrl, completed: { [weak self] (image, error, cacheType, imageURL) in
-            self?.feedImgV.image = image })
-//        setupUserInfo()
+    var post:Post? {
+        didSet {
+            updateCellView()
+        }
+    }
+    var user:User? {
+        didSet {
+            setupUserInfo()
+        }
     }
     
-//    func setupUserInfo(){
-//        if let uid = Auth.auth().currentUser?.uid != nil{
-//            Database.database().reference().child("users").observeSingleEvent(of: DataEventType.value) { (snapShot) in
-//                if let snapshotValue = snapshot.value as? [String:Any]{
-//                    let text = snapshotValue["text"] as! String
-//                    let url = snapshotValue["photoUrl"] as! String
-//                    let uid = snapshotValue["userID"] as! String
-//                    let post = Post(feedText: text, imageUrl: url, userID: uid)
-//                }
-//            }
-//        }
-//    }
+    func updateCellView(){
+        feedText.text=post?.text
+        let photoUrlString = post?.photoUrl
+        let photoUrl = URL(string: photoUrlString!)
+        self.feedImgV.sd_setImage(with: photoUrl, completed: { [weak self] (image, error, cacheType, imageURL) in
+            self?.feedImgV.image = image })
+        setupUserInfo()
+    }
 
+    func setupUserInfo(){
+        userNameLab.text=user?.userName
+        if let userAvatarImageUrlString = user?.userAvatarImageUrl {
+            let photoUrl = URL(string: userAvatarImageUrlString)
+            self.userAvatarV.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "default-user-avatar"))
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        userNameLab.text = ""
+        feedText.text = ""
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        userAvatarV.image=UIImage(named: "default-user-avatar")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -55,11 +64,4 @@ class HomeFeedableViewCell: UITableViewCell {
     }
     
 
-    @IBAction func likeButton(_ sender: Any) {
-    }
-    @IBAction func commentsButton(_ sender: Any) {
-    }
-    @IBAction func moreInfoButton(_ sender: Any) {
-    }
-    
 }

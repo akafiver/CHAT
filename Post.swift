@@ -9,29 +9,29 @@
 import Foundation
 
 class Post {
-    var text:String
-    var photoUrl:String
-//    var uid:String
+    var text:String?
+    var photoUrl:String?
+    var uid:String?
     
-    init(feedText:String,imageUrl:String){
-        text=feedText
-        photoUrl=imageUrl
-//        uid=userID
-    }
+//    init(feedText:String,imageUrl:String){
+//        text=feedText
+//        photoUrl=imageUrl
+////        uid=userID
+//    }
     
 }
 
-//extension Post {
-//    static func transformPostPhoto(dict: [String: Any]) -> Post {
-//        let post = Post()
-//
-//        post.text = dict["text"] as? String
-//        post.photoUrl = dict["photoUrl"] as? String
-//        post.uid = dict["uid"] as? String
-//        return post
-//    }
-//
-//    static func transformPostVideo() {
-//
-//    }
-//}
+extension Post {
+    static func PostPhoto转换值(dict: [String: Any]) -> Post {
+        let post = Post()
+        
+        post.text = dict["text"] as? String
+        post.photoUrl = dict["photoUrl"] as? String
+        post.uid = dict["uid"] as? String
+        return post
+    }
+    
+    static func transformPostVideo() {
+        
+    }
+}

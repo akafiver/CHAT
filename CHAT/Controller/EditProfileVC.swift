@@ -57,7 +57,7 @@ class EditProfileVc: UIViewController {
     func sendDataToDatabase(url:String) {
         let AvatarRef = Database.database().reference().child("users").child("profile").child((Auth.auth().currentUser?.uid)!)
         guard Auth.auth().currentUser != nil else{return}
-        let userID=Auth.auth().currentUser?.uid
+        _=Auth.auth().currentUser?.uid
         AvatarRef.updateChildValues(["userAvatarImageUrl": url], withCompletionBlock: {(error, ref) in
             if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
             print("ulr成功上传")
