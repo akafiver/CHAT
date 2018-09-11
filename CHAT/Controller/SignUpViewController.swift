@@ -77,7 +77,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func 创建用户profile(){
         let 用户数据库 = Database.database().reference().child("users")
         let profileDictionary = ["email": Auth.auth().currentUser?.email, "userName": self.用户名称输入框.text!,"uid": Auth.auth().currentUser?.uid]
-        用户数据库.child("profile").child("user").updateChildValues(profileDictionary as Any as! [AnyHashable : Any]) { (error, ref) in
+        用户数据库.child("profile").child((Auth.auth().currentUser?.uid)!).updateChildValues(profileDictionary as Any as! [AnyHashable : Any]) { (error, ref) in
             if error != nil {print(error!)}else {print("信息保存成功")
             self.用户名称输入框.isEnabled = true
             self.邮箱输入框.isEnabled = true

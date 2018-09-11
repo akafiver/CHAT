@@ -33,4 +33,20 @@ class 样式管理:UIView {
         layer.layer.cornerRadius = layer.frame.size.height/2
     }
     
+    static func 头像样式(layer:UIImageView){
+        layer.layer.cornerRadius = 16
+        layer.layer.shadowColor=UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
+        layer.layer.shadowOffset=CGSize(width: 0, height: 6.0)
+        layer.layer.shadowRadius=30
+        layer.layer.shadowOpacity=0.3
+    }
+    
+    static func 图片样式(layer:UIImageView){
+        layer.layer.cornerRadius = 15
+        layer.layer.shadowColor=UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
+        layer.layer.shadowOffset=CGSize(width: 0, height: 6.0)
+        layer.layer.shadowRadius=30
+        layer.layer.shadowOpacity=0.3
+    }
+    
 }

@@ -102,7 +102,9 @@ class AddNewFeedVC: UIViewController,UITextFieldDelegate {
         let postsRef = ref.child("posts")
         let newPostId = postsRef.childByAutoId().key
         let newPostReference = postsRef.child(newPostId)
-        newPostReference.updateChildValues(["photoUrl": url,"text":FeedTF.text!], withCompletionBlock: {(error, ref) in
+        guard Auth.auth().currentUser != nil else{return}
+        let userID=Auth.auth().currentUser?.uid
+        newPostReference.updateChildValues(["uid":userID!,"photoUrl": url,"text":FeedTF.text!], withCompletionBlock: {(error, ref) in
             if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
             print("ulr成功上传")
             SVProgressHUD.showSuccess(withStatus: "Success")
