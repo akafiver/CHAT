@@ -18,7 +18,7 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var commentsTF: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     
-    let postID="-LM3xhliX9YlbUXNS26_"
+    var postID:String!
     var commentsArray=[Comment]()
     var usersArray=[User]()
     
@@ -74,7 +74,13 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //TODO:- TabBar在加载页面时隐藏
         self.tabBarController?.tabBar.isHidden=true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //TODO:- TabBar在离开页面时显示
+        self.tabBarController?.tabBar.isHidden=false
     }
     
     

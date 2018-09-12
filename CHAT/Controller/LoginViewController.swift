@@ -62,7 +62,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if error != nil{
                 print(error!)
                 SVProgressHUD.dismiss()
-                AlertController.showAlert(self, tittle: "错误", message: (error?.localizedDescription)!)
+                AlertController.显示弹窗(self, tittle: "错误", message: (error?.localizedDescription)!)
             }else{
                 print("登录成功")
                 SVProgressHUD.dismiss()

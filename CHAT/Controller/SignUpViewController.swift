@@ -53,7 +53,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         guard let 用户名称输入 = 用户名称输入框.text, 用户名称输入 != "",
         let 邮箱输入 = 邮箱输入框.text, 邮箱输入 != "",
             let 密码输入 = 密码输入框.text, 密码输入 != ""
-            else{AlertController.showAlert(self, tittle: "错误", message: "请输入完整资料");return}
+            else{AlertController.显示弹窗(self, tittle: "错误", message: "请输入完整资料");return}
             
         SVProgressHUD.show()
 
@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             if error != nil{
                 print(error!)
                 SVProgressHUD.dismiss()
-                AlertController.showAlert(self, tittle: "错误", message: (error?.localizedDescription)!)
+                AlertController.显示弹窗(self, tittle: "错误", message: (error?.localizedDescription)!)
             }else{
 
                 self.创建用户profile()

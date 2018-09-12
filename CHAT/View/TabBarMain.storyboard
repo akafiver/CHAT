@@ -58,7 +58,7 @@
                                                     <rect key="frame" x="90" y="353" width="20" height="22"/>
                                                     <state key="normal" image="CommentsButton"/>
                                                     <connections>
-                                                        <action selector="buttonToComments:" destination="aND-hE-YXD" eventType="touchUpInside" id="p5j-xU-QIx"/>
+                                                        <action selector="commentButtonInCell:" destination="hcv-ad-Lws" eventType="touchUpInside" id="AP1-po-gqS"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs0-wL-4cV">

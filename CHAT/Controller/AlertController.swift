@@ -13,11 +13,11 @@ class AlertController{
     let feedFunction=AddNewFeedVC()
 
     //MARK:-登录注册页错误弹窗
-    static func showAlert (_ inViewController: UIViewController, tittle: String, message: String){
-        let alert=UIAlertController(title: tittle, message: message, preferredStyle: .alert)
-        let action=UIAlertAction(title: "OK", style:.default, handler: nil)
-        alert.addAction(action)
-        inViewController.present(alert, animated: true, completion: nil)
+    static func 显示弹窗 (_ inViewController: UIViewController, tittle: String, message: String){
+        let 弹窗=UIAlertController(title: tittle, message: message, preferredStyle: .alert)
+        let 动作=UIAlertAction(title: "OK", style:.default, handler: nil)
+        弹窗.addAction(动作)
+        inViewController.present(弹窗, animated: true, completion: nil)
     }
     
     

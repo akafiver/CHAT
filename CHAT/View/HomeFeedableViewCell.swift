@@ -17,6 +17,8 @@ class HomeFeedableViewCell: UITableViewCell {
     @IBOutlet weak var feedText: UILabel!
     @IBOutlet weak var likeNom: UILabel!
     @IBOutlet weak var commentsNom: UILabel!
+
+    var homeVC:HomeVC?
     
     var post:Post? {
         didSet {
@@ -45,6 +47,12 @@ class HomeFeedableViewCell: UITableViewCell {
             self.userAvatarV.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "default-user-avatar"))
         }
     }
+    
+    
+    @IBAction func commentButtonInCell(_ sender: Any) {
+        if let id = post?.id {homeVC?.performSegue(withIdentifier: "toCommentsPage", sender: id)}
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
