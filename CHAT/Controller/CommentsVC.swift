@@ -15,16 +15,16 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var loadingAnimat: UIActivityIndicatorView!
     @IBOutlet weak var 评论Table: UITableView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var commentsTF: UITextField!
+    @IBOutlet weak var 评论输入框: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     
-    var postID:String!
-    var commentsArray=[Comment]()
-    var usersArray=[User]()
+    var 帖子ID:String!
+    var 评论Array=[评论Model]()
+    var 用户Array=[用户Model]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        commentsTF.delegate = self
+        评论输入框.delegate = self
         sendButton.isEnabled=false
         TextField监听()
         评论Table.estimatedRowHeight=57
@@ -59,10 +59,10 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     
     //TODO:- TextField监听
     func TextField监听() {
-        commentsTF.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        评论输入框.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
     }
     @objc func textFieldDidChange() {
-        if let commentsText = commentsTF.text, !commentsText.isEmpty {
+        if let 评论文字 = 评论输入框.text, !评论文字.isEmpty {
             sendButton.setImage(UIImage(named: "导航 激活"), for: UIControlState.normal)
             sendButton.isEnabled=true
             return
@@ -95,9 +95,9 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
         let newCommentReference = commentsRef.child(newCommentsId)
         guard Auth.auth().currentUser != nil else{return}
         let userID=Auth.auth().currentUser?.uid
-        newCommentReference.updateChildValues(["uid":userID!,"commentText":commentsTF.text!], withCompletionBlock: {(error, ref) in
+        newCommentReference.updateChildValues(["uid":userID!,"commentText":评论输入框.text!], withCompletionBlock: {(error, ref) in
             if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
-            let postCommentRef = Database.database().reference().child("post-comments").child(self.postID).child(newCommentsId)
+            let postCommentRef = Database.database().reference().child("post-comments").child(self.帖子ID).child(newCommentsId)
             postCommentRef.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
                 print("评论成功")
@@ -108,7 +108,7 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
         })
     }
     func 清空输入框初始发送按钮(){
-        self.commentsTF.text = ""
+        self.评论输入框.text = ""
         self.sendButton.isEnabled=false
         self.sendButton.setImage(UIImage(named: "定位图标"), for: UIControlState.normal)
 
@@ -117,12 +117,12 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     
     func loadComments(){
         loadingAnimat.startAnimating()
-        Database.database().reference().child("post-comments").child(self.postID).observe(.childAdded) { (snapshot:DataSnapshot) in
+        Database.database().reference().child("post-comments").child(self.帖子ID).observe(.childAdded) { (snapshot:DataSnapshot) in
             Database.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: .value, with: {snapshotComment in
             if let snapshotValue = snapshotComment.value as? [String:Any]{
-                let 新评论=Comment.transformComment(dict: snapshotValue)
+                let 新评论=评论Model.评论转换值(字典: snapshotValue)
                 self.user读取(uid: 新评论.uid!, completed: {
-                    self.commentsArray.append(新评论)
+                    self.评论Array.append(新评论)
                     self.loadingAnimat.stopAnimating()
                     self.评论Table.reloadData()
                     })
@@ -136,8 +136,8 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
         Database.database().reference().child("users").child("profile").child(uid).observeSingleEvent(of: DataEventType.value, with: {
             snapshot in
             if let snapshotValue = snapshot.value as? [String:Any]{
-                let user = User.transformUser(dict: snapshotValue)
-                self.usersArray.append(user)
+                let user = 用户Model.用户转换值(字典: snapshotValue)
+                self.用户Array.append(user)
                 completed()
             }
         })
@@ -145,7 +145,7 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     
     
     func 新建帖子页面点击(){
-        commentsTF.endEditing(true)
+        评论输入框.endEditing(true)
     }
     //TODO:- 点击回车收回键盘:
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -158,14 +158,14 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
 
 extension CommentsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentsArray.count
+        return 评论Array.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = 评论Table.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentsTVCell
-        let Comment = commentsArray[indexPath.row]
-        let user = usersArray[indexPath.row]
-        cell.comment = Comment
-        cell.user = user
+        let 评论集合 = 评论Array[indexPath.row]
+        let 用户集合 = 用户Array[indexPath.row]
+        cell.评论 = 评论集合
+        cell.用户 = 用户集合
         return cell
     }
 }

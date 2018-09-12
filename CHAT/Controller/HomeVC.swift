@@ -12,8 +12,8 @@ import SDWebImage
 
 class HomeVC: UIViewController,UITableViewDelegate {
 
-    var 帖子Array=[Post]()
-    var 用户Array=[User]()
+    var 帖子Array=[帖子Model]()
+    var 用户Array=[用户Model]()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingAnimat: UIActivityIndicatorView!
@@ -31,7 +31,7 @@ class HomeVC: UIViewController,UITableViewDelegate {
         loadingAnimat.startAnimating()
         Database.database().reference().child("posts").observe(.childAdded) { (快照:DataSnapshot) in
             if let 快照值 = 快照.value as? [String:Any]{
-                let 新帖子=Post.帖子照片转换值(dict: 快照值,key:快照.key)
+                let 新帖子=帖子Model.帖子照片转换值(字典: 快照值,帖子辨识码:快照.key)
                 self.读取用户(uid: 新帖子.uid!, completed: {
                 self.帖子Array.append(新帖子)
                 self.loadingAnimat.stopAnimating()
@@ -45,7 +45,7 @@ class HomeVC: UIViewController,UITableViewDelegate {
         Database.database().reference().child("users").child("profile").child(uid).observeSingleEvent(of: DataEventType.value, with: {
             snapshot in
             if let snapshotValue = snapshot.value as? [String:Any]{
-                let user = User.transformUser(dict: snapshotValue)
+                let user = 用户Model.用户转换值(字典: snapshotValue)
                 self.用户Array.append(user)
                 completed()
                 }
@@ -67,10 +67,10 @@ extension HomeVC:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! HomeFeedableViewCell
-        let post=帖子Array[indexPath.row]
-        let user=用户Array[indexPath.row]
-        cell.post=post
-        cell.user=user
+        let 帖子集合=帖子Array[indexPath.row]
+        let 用户集合=用户Array[indexPath.row]
+        cell.帖子=帖子集合
+        cell.用户=用户集合
         cell.homeVC = self
 //        cell.textLabel?.text=postArray[indexPath.row].text
 //        样式管理.头像样式(layer: cell.userAvatarV)

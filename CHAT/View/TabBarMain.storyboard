@@ -145,12 +145,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentsNom" destination="zII-SL-jpQ" id="Hwg-Zp-YFd"/>
-                                            <outlet property="feedImgV" destination="3ah-fZ-9HN" id="Dgw-5d-y93"/>
-                                            <outlet property="feedText" destination="2NA-zP-Yae" id="2rd-xO-S6Q"/>
-                                            <outlet property="likeNom" destination="gs0-wL-4cV" id="0Vt-cL-ghl"/>
-                                            <outlet property="userAvatarV" destination="YbK-TE-VPj" id="FuV-ca-MDv"/>
-                                            <outlet property="userNameLab" destination="wDN-xR-5s7" id="qaa-ej-lNU"/>
+                                            <outlet property="帖子图片" destination="3ah-fZ-9HN" id="fS2-tF-Qiu"/>
+                                            <outlet property="帖子文字内容" destination="2NA-zP-Yae" id="NxO-Ev-0kq"/>
+                                            <outlet property="用户名称" destination="wDN-xR-5s7" id="pIe-BY-RHd"/>
+                                            <outlet property="用户头像" destination="YbK-TE-VPj" id="lar-Gl-Q0P"/>
+                                            <outlet property="获赞数量" destination="gs0-wL-4cV" id="2mE-6W-Yu8"/>
+                                            <outlet property="评论数量" destination="zII-SL-jpQ" id="wvj-4T-IYT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -239,9 +239,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentLab" destination="n3S-Fx-9q5" id="6vX-D0-B1E"/>
-                                            <outlet property="userAvatarImage" destination="8E1-WB-hvu" id="e8g-Uj-GOJ"/>
-                                            <outlet property="userNameLab" destination="Wln-lh-lND" id="fPq-Ql-Vym"/>
+                                            <outlet property="用户名称" destination="Wln-lh-lND" id="b2M-O2-XAi"/>
+                                            <outlet property="用户头像" destination="8E1-WB-hvu" id="Tzx-8T-0JO"/>
+                                            <outlet property="评论内容" destination="n3S-Fx-9q5" id="UMu-Rx-CgE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -310,11 +310,11 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="commentsTF" destination="i1h-2c-oyM" id="snY-b6-Mp7"/>
                         <outlet property="heightConstraint" destination="v2o-BH-w2E" id="pJm-PZ-hAq"/>
                         <outlet property="loadingAnimat" destination="Izy-gf-9PQ" id="SwY-wk-UxS"/>
                         <outlet property="sendButton" destination="bnO-GP-q8t" id="vie-c8-IfS"/>
                         <outlet property="评论Table" destination="5kN-bO-Of7" id="81x-7r-32i"/>
+                        <outlet property="评论输入框" destination="i1h-2c-oyM" id="Lr0-Up-74p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sjx-Wg-PeY" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,58 +11,58 @@ import Firebase
 
 class HomeFeedableViewCell: UITableViewCell {
 
-    @IBOutlet weak var feedImgV: UIImageView!
-    @IBOutlet weak var userAvatarV: UIImageView!
-    @IBOutlet weak var userNameLab: UILabel!
-    @IBOutlet weak var feedText: UILabel!
-    @IBOutlet weak var likeNom: UILabel!
-    @IBOutlet weak var commentsNom: UILabel!
+    @IBOutlet weak var 帖子图片: UIImageView!
+    @IBOutlet weak var 用户头像: UIImageView!
+    @IBOutlet weak var 用户名称: UILabel!
+    @IBOutlet weak var 帖子文字内容: UILabel!
+    @IBOutlet weak var 获赞数量: UILabel!
+    @IBOutlet weak var 评论数量: UILabel!
 
     var homeVC:HomeVC?
     
-    var post:Post? {
+    var 帖子:帖子Model? {
         didSet {
             updateCellView()
         }
     }
-    var user:User? {
+    var 用户:用户Model? {
         didSet {
             setupUserInfo()
         }
     }
     
     func updateCellView(){
-        feedText.text=post?.text
-        let photoUrlString = post?.photoUrl
-        let photoUrl = URL(string: photoUrlString!)
-        self.feedImgV.sd_setImage(with: photoUrl, completed: { [weak self] (image, error, cacheType, imageURL) in
-            self?.feedImgV.image = image })
+        帖子文字内容.text=帖子?.帖子文字内容
+        let 图片UrlString = 帖子?.帖子图片URL
+        let 图片Url = URL(string: 图片UrlString!)
+        self.帖子图片.sd_setImage(with: 图片Url, completed: { [weak self] (image, error, cacheType, imageURL) in
+            self?.帖子图片.image = image })
         setupUserInfo()
     }
 
     func setupUserInfo(){
-        userNameLab.text=user?.userName
-        if let userAvatarImageUrlString = user?.userAvatarImageUrl {
-            let photoUrl = URL(string: userAvatarImageUrlString)
-            self.userAvatarV.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "default-user-avatar"))
+        用户名称.text=用户?.用户名称
+        if let 用户头像UrlString = 用户?.用户头像Url {
+            let 图片Url = URL(string: 用户头像UrlString)
+            self.用户头像.sd_setImage(with: 图片Url, placeholderImage:UIImage(named: "default-user-avatar"))
         }
     }
     
     
     @IBAction func commentButtonInCell(_ sender: Any) {
-        if let id = post?.id {homeVC?.performSegue(withIdentifier: "toCommentsPage", sender: id)}
+        if let id = 帖子?.帖子id {homeVC?.performSegue(withIdentifier: "toCommentsPage", sender: id)}
     }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        userNameLab.text = ""
-        feedText.text = ""
+        用户名称.text = ""
+        帖子文字内容.text = ""
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        userAvatarV.image=UIImage(named: "default-user-avatar")
+        用户头像.image=UIImage(named: "default-user-avatar")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

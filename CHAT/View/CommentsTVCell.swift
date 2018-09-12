@@ -10,44 +10,44 @@ import UIKit
 
 class CommentsTVCell: UITableViewCell {
 
-    @IBOutlet weak var userNameLab: UILabel!
-    @IBOutlet weak var userAvatarImage: UIImageView!
-    @IBOutlet weak var commentLab: UILabel!
+    @IBOutlet weak var 用户名称: UILabel!
+    @IBOutlet weak var 用户头像: UIImageView!
+    @IBOutlet weak var 评论内容: UILabel!
     
     
-    var comment: Comment? {
+    var 评论: 评论Model? {
         didSet {
             updateCommentsCellView()
         }
     }
     
-    var user: User? {
+    var 用户: 用户Model? {
         didSet {
             setupUserInfo()
         }
     }
     
     func updateCommentsCellView() {
-        commentLab.text = comment?.commentText
+        评论内容.text = 评论?.评论内容
     }
     
     func setupUserInfo() {
-        userNameLab.text = user?.userName
-        if let userAvatarImageUrlString = user?.userAvatarImageUrl {
-            let photoUrl = URL(string: userAvatarImageUrlString)
-            self.userAvatarImage.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "default-user-avatar"))
+        用户名称.text = 用户?.用户名称
+        if let 用户头像UrlString = 用户?.用户头像Url {
+            let photoUrl = URL(string: 用户头像UrlString)
+            self.用户头像.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "default-user-avatar"))
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        userNameLab.text = ""
-        commentLab.text = ""
+        用户名称.text = ""
+        评论内容.text = ""
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        userAvatarImage.image=UIImage(named: "default-user-avatar")
+        用户头像.image=UIImage(named: "default-user-avatar")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
