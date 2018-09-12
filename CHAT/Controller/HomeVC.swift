@@ -29,27 +29,20 @@ class HomeVC: UIViewController,UITableViewDelegate {
     
     func 加载帖子(){
         loadingAnimat.startAnimating()
-        Database.database().reference().child("posts").observe(.childAdded) { (快照:DataSnapshot) in
-            if let 快照值 = 快照.value as? [String:Any]{
-                let 新帖子=帖子Model.帖子照片转换值(字典: 快照值,帖子辨识码:快照.key)
-                self.读取用户(uid: 新帖子.uid!, completed: {
+        数据库地址.帖子地址.帖子总览 { (新帖子) in
+            self.读取用户(uid: 新帖子.uid!, completed: {
                 self.帖子Array.append(新帖子)
                 self.loadingAnimat.stopAnimating()
                 self.tableView.reloadData()
-                })
-            }
+            })
         }
     }
     
     func 读取用户(uid:String, completed:  @escaping () -> Void ) {
-        Database.database().reference().child("users").child("profile").child(uid).observeSingleEvent(of: DataEventType.value, with: {
-            快照 in
-            if let 快照值 = 快照.value as? [String:Any]{
-                let 单个用户 = 用户Model.用户转换值(字典: 快照值)
-                self.用户Array.append(单个用户)
-                completed()
-                }
-        })
+        数据库地址.用户地址.用户总览(withId: uid) { (单个用户) in
+            self.用户Array.append(单个用户)
+            completed()
+        }
     }
     
     override func didReceiveMemoryWarning() {

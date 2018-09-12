@@ -22,6 +22,11 @@
 		4D32D15921404C5300110620 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15821404C5300110620 /* SignUpViewController.swift */; };
 		4D32D15B214057AA00110620 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D15A214057AA00110620 /* GoogleService-Info.plist */; };
 		4D32D15D21405F8100110620 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15C21405F8100110620 /* UserProfileViewController.swift */; };
+		4D4E296F214949BD009E4ACF /* 帖子数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E296E214949BD009E4ACF /* 帖子数据库地址.swift */; };
+		4D4E2971214949CD009E4ACF /* 用户数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E2970214949CD009E4ACF /* 用户数据库地址.swift */; };
+		4D4E2973214949EC009E4ACF /* 评论数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E2972214949EC009E4ACF /* 评论数据库地址.swift */; };
+		4D4E2975214949FD009E4ACF /* 帖子评论数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E2974214949FD009E4ACF /* 帖子评论数据库地址.swift */; };
+		4D4E297721494A1C009E4ACF /* 数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E297621494A1C009E4ACF /* 数据库地址.swift */; };
 		4D718F052147D21D0041C800 /* UserProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D718F042147D21D0041C800 /* UserProfileCollectionViewCell.swift */; };
 		4D7F3354214817A8005A2DA3 /* CommentsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7F3353214817A8005A2DA3 /* CommentsTVCell.swift */; };
 		4D7F335621481BB2005A2DA3 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7F335521481BB2005A2DA3 /* CommentsVC.swift */; };
@@ -54,6 +59,11 @@
 		4D32D15821404C5300110620 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4D32D15A214057AA00110620 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D32D15C21405F8100110620 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		4D4E296E214949BD009E4ACF /* 帖子数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "帖子数据库地址.swift"; sourceTree = "<group>"; };
+		4D4E2970214949CD009E4ACF /* 用户数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "用户数据库地址.swift"; sourceTree = "<group>"; };
+		4D4E2972214949EC009E4ACF /* 评论数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "评论数据库地址.swift"; sourceTree = "<group>"; };
+		4D4E2974214949FD009E4ACF /* 帖子评论数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "帖子评论数据库地址.swift"; sourceTree = "<group>"; };
+		4D4E297621494A1C009E4ACF /* 数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "数据库地址.swift"; sourceTree = "<group>"; };
 		4D718F042147D21D0041C800 /* UserProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D7F3353214817A8005A2DA3 /* CommentsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTVCell.swift; sourceTree = "<group>"; };
 		4D7F335521481BB2005A2DA3 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
@@ -99,6 +109,7 @@
 		4D1DBFF2214012F0004D50CB /* CHAT */ = {
 			isa = PBXGroup;
 			children = (
+				4D4E296D21494951009E4ACF /* 数据库提取 */,
 				4D1DC00921401724004D50CB /* Model */,
 				4D1DC007214016F5004D50CB /* Controller */,
 				4D1DC0082140170E004D50CB /* View */,
@@ -151,6 +162,18 @@
 			);
 			name = Model;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		4D4E296D21494951009E4ACF /* 数据库提取 */ = {
+			isa = PBXGroup;
+			children = (
+				4D4E296E214949BD009E4ACF /* 帖子数据库地址.swift */,
+				4D4E2970214949CD009E4ACF /* 用户数据库地址.swift */,
+				4D4E2972214949EC009E4ACF /* 评论数据库地址.swift */,
+				4D4E2974214949FD009E4ACF /* 帖子评论数据库地址.swift */,
+				4D4E297621494A1C009E4ACF /* 数据库地址.swift */,
+			);
+			name = "数据库提取";
 			sourceTree = "<group>";
 		};
 		875AB85C61CE97715A5EC99A /* Frameworks */ = {
@@ -298,15 +321,20 @@
 			files = (
 				4D9E78A92140294F00C503B0 /* 颜色管理.swift in Sources */,
 				4DA286F02142EDD100E6FCF1 /* HomeVC.swift in Sources */,
+				4D4E2971214949CD009E4ACF /* 用户数据库地址.swift in Sources */,
 				4DA286EC2142BE9C00E6FCF1 /* AlertController.swift in Sources */,
 				4D7F3354214817A8005A2DA3 /* CommentsTVCell.swift in Sources */,
 				4D1B8DC021469D1F00FBBEF1 /* 帖子.swift in Sources */,
 				4D32D15D21405F8100110620 /* UserProfileViewController.swift in Sources */,
+				4D4E297721494A1C009E4ACF /* 数据库地址.swift in Sources */,
 				4D32D15921404C5300110620 /* SignUpViewController.swift in Sources */,
 				4D081F07214794280087E53A /* 用户.swift in Sources */,
 				4D1DBFF6214012F0004D50CB /* ViewController.swift in Sources */,
 				4D9E78AB2140297B00C503B0 /* 样式管理.swift in Sources */,
 				4D32D15521403FAA00110620 /* LoginViewController.swift in Sources */,
+				4D4E296F214949BD009E4ACF /* 帖子数据库地址.swift in Sources */,
+				4D4E2975214949FD009E4ACF /* 帖子评论数据库地址.swift in Sources */,
+				4D4E2973214949EC009E4ACF /* 评论数据库地址.swift in Sources */,
 				4D081F092147996E0087E53A /* EditProfileVC.swift in Sources */,
 				4D32D15721403FEC00110620 /* WelcomePageViewController.swift in Sources */,
 				4D7F335621481BB2005A2DA3 /* CommentsVC.swift in Sources */,

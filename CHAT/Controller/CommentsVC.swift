@@ -91,15 +91,15 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     
     //TODO:- 点击发送按钮
     @IBAction func sendButton(_ sender: Any) {
-        let commentsRef = Database.database().reference().child("comments")
-        let newCommentsId = commentsRef.childByAutoId().key
-        let newCommentReference = commentsRef.child(newCommentsId)
+        let 评论引用 = Database.database().reference().child("comments")
+        let 新评论ID = 评论引用.childByAutoId().key
+        let 新评论引用 = 评论引用.child(新评论ID)
         guard Auth.auth().currentUser != nil else{return}
         let userID=Auth.auth().currentUser?.uid
-        newCommentReference.updateChildValues(["uid":userID!,"commentText":评论输入框.text!], withCompletionBlock: {(error, ref) in
+        新评论引用.updateChildValues(["uid":userID!,"commentText":评论输入框.text!], withCompletionBlock: {(error, ref) in
             if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
-            let postCommentRef = Database.database().reference().child("post-comments").child(self.帖子Id).child(newCommentsId)
-            postCommentRef.setValue(true, withCompletionBlock: { (error, ref) in
+            let 帖子评论引用 = Database.database().reference().child("post-comments").child(self.帖子Id).child(新评论ID)
+            帖子评论引用.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
                 print("评论成功")
             })
@@ -112,39 +112,27 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
         self.评论输入框.text = ""
         self.sendButton.isEnabled=false
         self.sendButton.setImage(UIImage(named: "定位图标"), for: UIControlState.normal)
-
-
     }
     
     func loadComments(){
         loadingAnimat.startAnimating()
-        let 帖子评论引用 = Database.database().reference().child("post-comments").child(self.帖子Id)
-            帖子评论引用.observe(.childAdded) { (快照:DataSnapshot) in
-            Database.database().reference().child("comments").child(快照.key).observeSingleEvent(of: .value, with: {评论快照 in
-            if let 快照值 = 评论快照.value as? [String:Any]{
-                let 新评论=评论Model.评论转换值(字典: 快照值)
-                self.user读取(uid: 新评论.uid!, completed: {
+        数据库地址.帖子评论地址.帖子评论引用地址.child(self.帖子Id).observe(.childAdded) { (快照:DataSnapshot) in
+            数据库地址.评论地址.评论总览(withId:快照.key , completion: { (新评论) in
+                self.读取用户(uid: 新评论.uid!, completed: {
                     self.评论Array.append(新评论)
                     self.loadingAnimat.stopAnimating()
                     self.评论Table.reloadData()
-                    })
-                }
+                })
             })
         }
     }
-
     
-    func user读取(uid:String, completed:  @escaping () -> Void ) {
-        Database.database().reference().child("users").child("profile").child(uid).observeSingleEvent(of: DataEventType.value, with: {
-            snapshot in
-            if let snapshotValue = snapshot.value as? [String:Any]{
-                let user = 用户Model.用户转换值(字典: snapshotValue)
-                self.用户Array.append(user)
-                completed()
-            }
-        })
+    func 读取用户(uid:String, completed:  @escaping () -> Void ) {
+        数据库地址.用户地址.用户总览(withId: uid) { (单个用户) in
+            self.用户Array.append(单个用户)
+            completed()
+        }
     }
-    
     
     func 新建帖子页面点击(){
         评论输入框.endEditing(true)
@@ -156,7 +144,6 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     }
 
 }
-
 
 extension CommentsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

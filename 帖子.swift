@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import Firebase
 
 class 帖子Model {
     var 帖子文字内容:String?
     var 帖子图片URL:String?
     var uid:String?
     var 帖子id: String?
+    var 赞计数: Int?
+    var 所有赞:Dictionary<String,Any>?
+    var 赞了: Bool?
 //    init(feedText:String,imageUrl:String){
 //        text=feedText
 //        photoUrl=imageUrl
@@ -28,6 +32,13 @@ extension 帖子Model {
         帖子.帖子文字内容 = 字典["text"] as? String
         帖子.帖子图片URL = 字典["photoUrl"] as? String
         帖子.uid = 字典["uid"] as? String
+        帖子.赞计数 = 字典["likeCount"] as? Int
+        帖子.所有赞 = 字典["likes"] as? Dictionary<String, Any>
+        if let 当前用户ID = Auth.auth().currentUser?.uid {
+            if 帖子.所有赞 != nil {
+                帖子.赞了 = 帖子.所有赞![当前用户ID] != nil
+            }
+        }
         return 帖子
     }
     
