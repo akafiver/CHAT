@@ -456,8 +456,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="userAvatarImage" destination="vFl-ua-jty" id="DVe-YY-DPq"/>
-                        <outlet property="userName" destination="iq9-HE-7Jt" id="dEd-bB-YdI"/>
+                        <outlet property="用户名称" destination="iq9-HE-7Jt" id="QtZ-LY-sPh"/>
+                        <outlet property="用户头像图片" destination="vFl-ua-jty" id="2SH-Qf-VGo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZg-Bm-Mb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -643,10 +643,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="FeedImage" destination="uIn-RS-Rtq" id="TDs-ep-Aw0"/>
-                        <outlet property="FeedTF" destination="8P0-iL-CNx" id="oFa-qM-N9d"/>
                         <outlet property="ShareButton" destination="ZT0-vK-6jc" id="x9f-Aj-HCy"/>
                         <outlet property="removedButton" destination="5bw-Gt-ygt" id="rNp-dy-mqB"/>
+                        <outlet property="帖子图片" destination="uIn-RS-Rtq" id="bDA-Gu-v9H"/>
+                        <outlet property="帖子文字内容输入框" destination="8P0-iL-CNx" id="bou-aV-GZl"/>
                         <outlet property="新建帖子页面" destination="Mal-ec-HZy" id="lkH-2P-2JA"/>
                     </connections>
                 </viewController>

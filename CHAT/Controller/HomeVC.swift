@@ -43,10 +43,10 @@ class HomeVC: UIViewController,UITableViewDelegate {
     
     func 读取用户(uid:String, completed:  @escaping () -> Void ) {
         Database.database().reference().child("users").child("profile").child(uid).observeSingleEvent(of: DataEventType.value, with: {
-            snapshot in
-            if let snapshotValue = snapshot.value as? [String:Any]{
-                let user = 用户Model.用户转换值(字典: snapshotValue)
-                self.用户Array.append(user)
+            快照 in
+            if let 快照值 = 快照.value as? [String:Any]{
+                let 单个用户 = 用户Model.用户转换值(字典: 快照值)
+                self.用户Array.append(单个用户)
                 completed()
                 }
         })

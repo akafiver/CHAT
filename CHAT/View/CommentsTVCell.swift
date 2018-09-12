@@ -34,8 +34,8 @@ class CommentsTVCell: UITableViewCell {
     func setupUserInfo() {
         用户名称.text = 用户?.用户名称
         if let 用户头像UrlString = 用户?.用户头像Url {
-            let photoUrl = URL(string: 用户头像UrlString)
-            self.用户头像.sd_setImage(with: photoUrl, placeholderImage:UIImage(named: "default-user-avatar"))
+            let 图片Url = URL(string: 用户头像UrlString)
+            self.用户头像.sd_setImage(with: 图片Url, placeholderImage:UIImage(named: "default-user-avatar"))
         }
     }
     

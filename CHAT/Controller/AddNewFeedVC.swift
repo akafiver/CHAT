@@ -13,8 +13,8 @@ import SVProgressHUD
 
 class AddNewFeedVC: UIViewController,UITextFieldDelegate {
 
-    @IBOutlet weak var FeedImage: UIImageView!
-    @IBOutlet weak var FeedTF: UITextView!
+    @IBOutlet weak var 帖子图片: UIImageView!
+    @IBOutlet weak var 帖子文字内容输入框: UITextView!
     @IBOutlet var 新建帖子页面: UIView!
     @IBOutlet weak var ShareButton: UIBarButtonItem!
     @IBOutlet weak var removedButton: UIBarButtonItem!
@@ -25,8 +25,8 @@ class AddNewFeedVC: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         //TODO:- 添加图像检测点击代码
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddNewFeedVC.选择新照片))
-        FeedImage.addGestureRecognizer(tapGesture)
-        FeedImage.isUserInteractionEnabled=true
+        帖子图片.addGestureRecognizer(tapGesture)
+        帖子图片.isUserInteractionEnabled=true
         
     }
     
@@ -52,7 +52,7 @@ class AddNewFeedVC: UIViewController,UITextFieldDelegate {
     }
     
     @objc func 新建帖子页面点击(){
-        FeedTF.endEditing(true)
+        帖子文字内容输入框.endEditing(true)
     }
 
     @objc func 选择新照片(){
@@ -63,15 +63,15 @@ class AddNewFeedVC: UIViewController,UITextFieldDelegate {
     }
 
     @IBAction func removeFeedButton(_ sender: UIBarButtonItem) {
-        removedAlert(tittle: "注意", message: "确定清除内容吗？")
+        清除输入内容弹窗(tittle: "注意", message: "确定清除内容吗？")
     }
     
     //清除按钮Alert
-    func removedAlert (tittle: String, message: String){
-        let alert=UIAlertController(title: tittle, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "取消", style: .default, handler: { (action) in }))
-        alert.addAction(UIAlertAction(title: "清除", style: .cancel, handler: { (action) in self.清除Feed内容();self.激活按钮()}))
-        self.present(alert, animated: true, completion: nil)
+    func 清除输入内容弹窗 (tittle: String, message: String){
+        let 弹窗=UIAlertController(title: tittle, message: message, preferredStyle: .alert)
+        弹窗.addAction(UIAlertAction(title: "取消", style: .default, handler: { (action) in }))
+        弹窗.addAction(UIAlertAction(title: "清除", style: .cancel, handler: { (action) in self.清除Feed内容();self.激活按钮()}))
+        self.present(弹窗, animated: true, completion: nil)
     }
     
     
@@ -79,32 +79,32 @@ class AddNewFeedVC: UIViewController,UITextFieldDelegate {
     @IBAction func ShareButton(_ sender: UIBarButtonItem) {
         view.endEditing(true)
         SVProgressHUD.show()
-        if let FeedImag = self.已选择照片, let imageData = UIImageJPEGRepresentation(FeedImag, 0.1) {
+        if let 帖子图片 = self.已选择照片, let 图片数据 = UIImageJPEGRepresentation(帖子图片, 0.1) {
             //指定文件唯一ID
-            let photoIdString = NSUUID().uuidString
+            let 图片唯一ID = NSUUID().uuidString
             //上传文件至Storage
-            let storageRef = Storage.storage().reference(forURL: "gs://chat-32b03.appspot.com").child("posts").child(photoIdString)
-            storageRef.putData(imageData, metadata: nil){ (metadata, error) in
-                if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}else{print("上传成功", photoIdString);SVProgressHUD.dismiss()}
+            let 储存引用 = Storage.storage().reference(forURL: "gs://chat-32b03.appspot.com").child("posts").child(图片唯一ID)
+            储存引用.putData(图片数据, metadata: nil){ (metadata, error) in
+                if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}else{print("上传成功", 图片唯一ID);SVProgressHUD.dismiss()}
                 //向storage获取文件URL
-                storageRef.downloadURL(completion: { (url, error) in if error != nil {print("Failed to download url:", error!);return}
+                储存引用.downloadURL(completion: { (url, error) in if error != nil {print("url下载失败:", error!);return}
                     print(url!,"URL获取成功")
                     //上传文件URL至database
-                    let imageUrl = url?.absoluteString
-                    self.sendDataToDatabase(url:imageUrl!)
+                    let 图片Url = url?.absoluteString
+                    self.发送数据至数据库(url:图片Url!)
                     })
             };return}
     }
     
     //TODO:- 上传文件URL至database
-    func sendDataToDatabase(url:String) {
-        let ref = Database.database().reference()
-        let postsRef = ref.child("posts")
-        let newPostId = postsRef.childByAutoId().key
-        let newPostReference = postsRef.child(newPostId)
+    func 发送数据至数据库(url:String) {
+        let 引用 = Database.database().reference()
+        let 帖子引用 = 引用.child("posts")
+        let 新帖子ID = 帖子引用.childByAutoId().key
+        let 新帖子引用 = 帖子引用.child(新帖子ID)
         guard Auth.auth().currentUser != nil else{return}
-        let userID=Auth.auth().currentUser?.uid
-        newPostReference.updateChildValues(["uid":userID!,"photoUrl": url,"text":FeedTF.text!], withCompletionBlock: {(error, ref) in
+        let 用户ID=Auth.auth().currentUser?.uid
+        新帖子引用.updateChildValues(["uid":用户ID!,"photoUrl": url,"text":帖子文字内容输入框.text!], withCompletionBlock: {(error, ref) in
             if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
             print("ulr成功上传")
             SVProgressHUD.showSuccess(withStatus: "Success")
@@ -114,8 +114,8 @@ class AddNewFeedVC: UIViewController,UITextFieldDelegate {
     }
     
     func 清除Feed内容() {
-        self.FeedTF.text=""
-        self.FeedImage.image=UIImage(named: "图片固定背景")
+        self.帖子文字内容输入框.text=""
+        self.帖子图片.image=UIImage(named: "图片固定背景")
         self.已选择照片=nil
     }
 
@@ -127,7 +127,7 @@ extension AddNewFeedVC:UIImagePickerControllerDelegate, UINavigationControllerDe
         print("照片以选择")
         if let image=info["UIImagePickerControllerOriginalImage"] as? UIImage{
             已选择照片=image
-            FeedImage.image=image
+            帖子图片.image=image
         }
 //如需选择后相册消失，添加这段代码
         dismiss(animated: true, completion: nil)
