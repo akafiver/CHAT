@@ -18,7 +18,7 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var 评论输入框: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     
-    var 帖子ID:String!
+    var 帖子Id:String!
     var 评论Array=[评论Model]()
     var 用户Array=[用户Model]()
     
@@ -31,6 +31,7 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
         评论Table.rowHeight=UITableViewAutomaticDimension
         评论Table.dataSource=self
         loadComments()
+        清空输入框初始发送按钮()
 //
         //TODO:- 输入框跟随键盘高度代码1.1
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -97,7 +98,7 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
         let userID=Auth.auth().currentUser?.uid
         newCommentReference.updateChildValues(["uid":userID!,"commentText":评论输入框.text!], withCompletionBlock: {(error, ref) in
             if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
-            let postCommentRef = Database.database().reference().child("post-comments").child(self.帖子ID).child(newCommentsId)
+            let postCommentRef = Database.database().reference().child("post-comments").child(self.帖子Id).child(newCommentsId)
             postCommentRef.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
                 print("评论成功")
@@ -117,10 +118,11 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     
     func loadComments(){
         loadingAnimat.startAnimating()
-        Database.database().reference().child("post-comments").child(self.帖子ID).observe(.childAdded) { (snapshot:DataSnapshot) in
-            Database.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: .value, with: {snapshotComment in
-            if let snapshotValue = snapshotComment.value as? [String:Any]{
-                let 新评论=评论Model.评论转换值(字典: snapshotValue)
+        let 帖子评论引用 = Database.database().reference().child("post-comments").child(self.帖子Id)
+            帖子评论引用.observe(.childAdded) { (快照:DataSnapshot) in
+            Database.database().reference().child("comments").child(快照.key).observeSingleEvent(of: .value, with: {评论快照 in
+            if let 快照值 = 评论快照.value as? [String:Any]{
+                let 新评论=评论Model.评论转换值(字典: 快照值)
                 self.user读取(uid: 新评论.uid!, completed: {
                     self.评论Array.append(新评论)
                     self.loadingAnimat.stopAnimating()

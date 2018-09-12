@@ -280,7 +280,7 @@
                                     <constraint firstItem="i1h-2c-oyM" firstAttribute="top" secondItem="IIV-9i-4Fs" secondAttribute="top" constant="10" id="gXy-zq-l51"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Izy-gf-9PQ">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Izy-gf-9PQ">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -311,7 +311,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="heightConstraint" destination="v2o-BH-w2E" id="pJm-PZ-hAq"/>
-                        <outlet property="loadingAnimat" destination="Izy-gf-9PQ" id="SwY-wk-UxS"/>
+                        <outlet property="loadingAnimat" destination="Izy-gf-9PQ" id="Bc5-NJ-cBJ"/>
                         <outlet property="sendButton" destination="bnO-GP-q8t" id="vie-c8-IfS"/>
                         <outlet property="评论Table" destination="5kN-bO-Of7" id="81x-7r-32i"/>
                         <outlet property="评论输入框" destination="i1h-2c-oyM" id="Lr0-Up-74p"/>

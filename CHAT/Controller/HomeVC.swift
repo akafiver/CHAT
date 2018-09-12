@@ -56,6 +56,13 @@ class HomeVC: UIViewController,UITableViewDelegate {
         super.didReceiveMemoryWarning()
 
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCommentsPage" {
+            let 评论页面 = segue.destination as! CommentsVC
+            let 帖子Id = sender  as! String
+            评论页面.帖子Id = 帖子Id
+        }
+    }
 
 
 }
