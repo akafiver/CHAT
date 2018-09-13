@@ -20,7 +20,7 @@ class HomeVC: UIViewController,UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight=460
+        tableView.estimatedRowHeight=490
         tableView.rowHeight=UITableViewAutomaticDimension
         tableView.dataSource=self
         加载帖子()
@@ -49,6 +49,8 @@ class HomeVC: UIViewController,UITableViewDelegate {
         super.didReceiveMemoryWarning()
 
     }
+    
+    //设置评论页面回路至帖子ID
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCommentsPage" {
             let 评论页面 = segue.destination as! CommentsVC
@@ -67,6 +69,22 @@ extension HomeVC:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! HomeFeedableViewCell
+        
+//        cell.帖子图片.layer.cornerRadius = 15
+//        cell.帖子图片.layer.masksToBounds = false
+//        let 图片=cell.帖子图片!
+//        let shadowPath2 = UIBezierPath(rect: cell.bounds)
+//        图片.layer.shadowColor = UIColor.black.cgColor
+//        图片.layer.shadowOffset = CGSize(width: 0, height: 6.0)
+//        图片.layer.shadowOpacity = 0.3
+//        图片.layer.shadowRadius=30
+//        图片.layer.shadowPath = shadowPath2.cgPath
+        cell.contentView.layer.shadowColor = UIColor.black.cgColor
+        cell.contentView.layer.shadowOffset = CGSize(width: 0, height: 5.0)
+        cell.contentView.layer.shadowOpacity = 0.3
+        cell.contentView.layer.shadowRadius=17
+        
+        
         let 帖子集合=帖子Array[indexPath.row]
         let 用户集合=用户Array[indexPath.row]
         cell.帖子=帖子集合

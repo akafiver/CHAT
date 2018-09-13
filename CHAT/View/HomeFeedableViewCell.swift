@@ -32,8 +32,11 @@ class HomeFeedableViewCell: UITableViewCell {
             设置帖子用户资料()
         }
     }
-    
+    func 加载阴影(){
+        样式管理.图片样式(layer: 帖子图片)
+    }
     func 更新Cell内容(){
+        
         //更新帖子图片和文字内容
         帖子文字内容.text=帖子?.帖子文字内容
         let 图片UrlString = 帖子?.帖子图片URL

@@ -58,7 +58,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
 //MARK:- FUNC
         //TODO:- 登录并跳转至主页
-        Auth.auth().signIn(withEmail: "1@1.com", password: "123456") { (user, error) in
+        Auth.auth().signIn(withEmail: "3@3.com", password: "123456") { (user, error) in
             if error != nil{
                 print(error!)
                 SVProgressHUD.dismiss()
