@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import Firebase
 import SVProgressHUD
-
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -55,33 +53,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func 点击登录按钮(_ sender: Any) {
         
         SVProgressHUD.show()
-    
-//MARK:- FUNC
         //TODO:- 登录并跳转至主页
-        Auth.auth().signIn(withEmail: "3@3.com", password: "123456") { (user, error) in
-            if error != nil{
-                print(error!)
-                SVProgressHUD.dismiss()
-                AlertController.显示弹窗(self, tittle: "错误", message: (error?.localizedDescription)!)
-            }else{
-                print("登录成功")
-                SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "前往首页", sender: self)
-            }
-
+        登录公式.登录(邮箱: 邮箱输入框.text!, 密码: "123456", onSuccess: {
+            print("登录成功")
+            SVProgressHUD.dismiss()
+            self.performSegue(withIdentifier: "前往首页", sender: self)
+        }) { (error) in
+            print(error!)
+            SVProgressHUD.dismiss()
+            AlertController.显示弹窗(self, tittle: "错误", message: error!)
         }
-//        Auth.auth().signIn(withEmail: 邮箱输入框.text!, password: 密码输入框.text!) { (user, error) in
-//            if error != nil{
-//                print(error!)
-//                SVProgressHUD.dismiss()
-//                AlertController.showAlert(self, tittle: "错误", message: (error?.localizedDescription)!)
-//            }else{
-//                print("登录成功")
-//                SVProgressHUD.dismiss()
-//                self.performSegue(withIdentifier: "前往首页", sender: self)
-//            }
-//
-//        }
     }
     
 

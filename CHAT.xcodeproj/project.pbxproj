@@ -22,12 +22,16 @@
 		4D32D15921404C5300110620 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15821404C5300110620 /* SignUpViewController.swift */; };
 		4D32D15B214057AA00110620 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D15A214057AA00110620 /* GoogleService-Info.plist */; };
 		4D32D15D21405F8100110620 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D32D15C21405F8100110620 /* UserProfileViewController.swift */; };
+		4D432D17214A5F4C001727B8 /* UserPorfileCardCRV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D432D16214A5F4C001727B8 /* UserPorfileCardCRV.swift */; };
+		4D432D19214A9450001727B8 /* 用户帖子数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D432D18214A9450001727B8 /* 用户帖子数据库地址.swift */; };
+		4D432D1B214AAE8A001727B8 /* UserFeedPhotoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D432D1A214AAE8A001727B8 /* UserFeedPhotoCVCell.swift */; };
+		4D432D1D214AC797001727B8 /* 登录公式.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D432D1C214AC797001727B8 /* 登录公式.swift */; };
+		4D432D1F214ADD89001727B8 /* 上传发送公式.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D432D1E214ADD89001727B8 /* 上传发送公式.swift */; };
 		4D4E296F214949BD009E4ACF /* 帖子数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E296E214949BD009E4ACF /* 帖子数据库地址.swift */; };
 		4D4E2971214949CD009E4ACF /* 用户数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E2970214949CD009E4ACF /* 用户数据库地址.swift */; };
 		4D4E2973214949EC009E4ACF /* 评论数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E2972214949EC009E4ACF /* 评论数据库地址.swift */; };
 		4D4E2975214949FD009E4ACF /* 帖子评论数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E2974214949FD009E4ACF /* 帖子评论数据库地址.swift */; };
 		4D4E297721494A1C009E4ACF /* 数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E297621494A1C009E4ACF /* 数据库地址.swift */; };
-		4D718F052147D21D0041C800 /* UserProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D718F042147D21D0041C800 /* UserProfileCollectionViewCell.swift */; };
 		4D7F3354214817A8005A2DA3 /* CommentsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7F3353214817A8005A2DA3 /* CommentsTVCell.swift */; };
 		4D7F335621481BB2005A2DA3 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7F335521481BB2005A2DA3 /* CommentsVC.swift */; };
 		4D7F33582148444E005A2DA3 /* 评论.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7F33572148444E005A2DA3 /* 评论.swift */; };
@@ -59,12 +63,16 @@
 		4D32D15821404C5300110620 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4D32D15A214057AA00110620 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D32D15C21405F8100110620 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		4D432D16214A5F4C001727B8 /* UserPorfileCardCRV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPorfileCardCRV.swift; sourceTree = "<group>"; };
+		4D432D18214A9450001727B8 /* 用户帖子数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "用户帖子数据库地址.swift"; sourceTree = "<group>"; };
+		4D432D1A214AAE8A001727B8 /* UserFeedPhotoCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFeedPhotoCVCell.swift; sourceTree = "<group>"; };
+		4D432D1C214AC797001727B8 /* 登录公式.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "登录公式.swift"; sourceTree = "<group>"; };
+		4D432D1E214ADD89001727B8 /* 上传发送公式.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "上传发送公式.swift"; sourceTree = "<group>"; };
 		4D4E296E214949BD009E4ACF /* 帖子数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "帖子数据库地址.swift"; sourceTree = "<group>"; };
 		4D4E2970214949CD009E4ACF /* 用户数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "用户数据库地址.swift"; sourceTree = "<group>"; };
 		4D4E2972214949EC009E4ACF /* 评论数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "评论数据库地址.swift"; sourceTree = "<group>"; };
 		4D4E2974214949FD009E4ACF /* 帖子评论数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "帖子评论数据库地址.swift"; sourceTree = "<group>"; };
 		4D4E297621494A1C009E4ACF /* 数据库地址.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "数据库地址.swift"; sourceTree = "<group>"; };
-		4D718F042147D21D0041C800 /* UserProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D7F3353214817A8005A2DA3 /* CommentsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTVCell.swift; sourceTree = "<group>"; };
 		4D7F335521481BB2005A2DA3 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		4D7F33572148444E005A2DA3 /* 评论.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "评论.swift"; sourceTree = "<group>"; };
@@ -142,8 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				4D1B8DCA2146C15600FBBEF1 /* HomeFeedableViewCell.swift */,
-				4D718F042147D21D0041C800 /* UserProfileCollectionViewCell.swift */,
+				4D432D16214A5F4C001727B8 /* UserPorfileCardCRV.swift */,
 				4D7F3353214817A8005A2DA3 /* CommentsTVCell.swift */,
+				4D432D1A214AAE8A001727B8 /* UserFeedPhotoCVCell.swift */,
 				4D1DBFF7214012F0004D50CB /* Main.storyboard */,
 				4D281F672144257700FDF1DD /* TabBarMain.storyboard */,
 				4D1DBFFC214012F0004D50CB /* LaunchScreen.storyboard */,
@@ -168,8 +177,11 @@
 			isa = PBXGroup;
 			children = (
 				4D4E296E214949BD009E4ACF /* 帖子数据库地址.swift */,
+				4D432D1C214AC797001727B8 /* 登录公式.swift */,
+				4D432D1E214ADD89001727B8 /* 上传发送公式.swift */,
 				4D4E2970214949CD009E4ACF /* 用户数据库地址.swift */,
 				4D4E2972214949EC009E4ACF /* 评论数据库地址.swift */,
+				4D432D18214A9450001727B8 /* 用户帖子数据库地址.swift */,
 				4D4E2974214949FD009E4ACF /* 帖子评论数据库地址.swift */,
 				4D4E297621494A1C009E4ACF /* 数据库地址.swift */,
 			);
@@ -320,6 +332,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D9E78A92140294F00C503B0 /* 颜色管理.swift in Sources */,
+				4D432D1B214AAE8A001727B8 /* UserFeedPhotoCVCell.swift in Sources */,
+				4D432D1D214AC797001727B8 /* 登录公式.swift in Sources */,
 				4DA286F02142EDD100E6FCF1 /* HomeVC.swift in Sources */,
 				4D4E2971214949CD009E4ACF /* 用户数据库地址.swift in Sources */,
 				4DA286EC2142BE9C00E6FCF1 /* AlertController.swift in Sources */,
@@ -327,6 +341,7 @@
 				4D1B8DC021469D1F00FBBEF1 /* 帖子.swift in Sources */,
 				4D32D15D21405F8100110620 /* UserProfileViewController.swift in Sources */,
 				4D4E297721494A1C009E4ACF /* 数据库地址.swift in Sources */,
+				4D432D1F214ADD89001727B8 /* 上传发送公式.swift in Sources */,
 				4D32D15921404C5300110620 /* SignUpViewController.swift in Sources */,
 				4D081F07214794280087E53A /* 用户.swift in Sources */,
 				4D1DBFF6214012F0004D50CB /* ViewController.swift in Sources */,
@@ -337,10 +352,11 @@
 				4D4E2973214949EC009E4ACF /* 评论数据库地址.swift in Sources */,
 				4D081F092147996E0087E53A /* EditProfileVC.swift in Sources */,
 				4D32D15721403FEC00110620 /* WelcomePageViewController.swift in Sources */,
+				4D432D19214A9450001727B8 /* 用户帖子数据库地址.swift in Sources */,
 				4D7F335621481BB2005A2DA3 /* CommentsVC.swift in Sources */,
 				4D1DBFF4214012F0004D50CB /* AppDelegate.swift in Sources */,
-				4D718F052147D21D0041C800 /* UserProfileCollectionViewCell.swift in Sources */,
 				4D7F33582148444E005A2DA3 /* 评论.swift in Sources */,
+				4D432D17214A5F4C001727B8 /* UserPorfileCardCRV.swift in Sources */,
 				4D1B8DCB2146C15600FBBEF1 /* HomeFeedableViewCell.swift in Sources */,
 				4D9A1C0F21453EDB007B8AED /* AddNewFeedVC.swift in Sources */,
 			);

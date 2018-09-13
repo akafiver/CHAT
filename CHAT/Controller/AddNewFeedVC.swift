@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseStorage
 import SVProgressHUD
 
 class AddNewFeedVC: UIViewController,UITextFieldDelegate {
@@ -74,45 +72,18 @@ class AddNewFeedVC: UIViewController,UITextFieldDelegate {
         self.present(弹窗, animated: true, completion: nil)
     }
     
-    
-    
+
     @IBAction func ShareButton(_ sender: UIBarButtonItem) {
         view.endEditing(true)
         SVProgressHUD.show()
         if let 帖子图片 = self.已选择照片, let 图片数据 = UIImageJPEGRepresentation(帖子图片, 0.1) {
-            //指定文件唯一ID
-            let 图片唯一ID = NSUUID().uuidString
-            //上传文件至Storage
-            let 储存引用 = Storage.storage().reference(forURL: "gs://chat-32b03.appspot.com").child("posts").child(图片唯一ID)
-            储存引用.putData(图片数据, metadata: nil){ (metadata, error) in
-                if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}else{print("上传成功", 图片唯一ID);SVProgressHUD.dismiss()}
-                //向storage获取文件URL
-                储存引用.downloadURL(completion: { (url, error) in if error != nil {print("url下载失败:", error!);return}
-                    print(url!,"URL获取成功")
-                    //上传文件URL至database
-                    let 图片Url = url?.absoluteString
-                    self.发送数据至数据库(url:图片Url!)
-                    })
-            };return}
+            上传发送公式.上传图像数据至储存(帖子数据: 图片数据, 帖子文字内容: 帖子文字内容输入框.text!) {
+                self.清除Feed内容()
+                self.tabBarController?.selectedIndex=0
+            }
+        }
     }
-    
-    //TODO:- 上传文件URL至database
-    func 发送数据至数据库(url:String) {
-        let 引用 = Database.database().reference()
-        let 帖子引用 = 引用.child("posts")
-        let 新帖子ID = 帖子引用.childByAutoId().key
-        let 新帖子引用 = 帖子引用.child(新帖子ID)
-        guard Auth.auth().currentUser != nil else{return}
-        let 用户ID=Auth.auth().currentUser?.uid
-        新帖子引用.updateChildValues(["uid":用户ID!,"photoUrl": url,"text":帖子文字内容输入框.text!], withCompletionBlock: {(error, ref) in
-            if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
-            print("ulr成功上传")
-            SVProgressHUD.showSuccess(withStatus: "Success")
-            self.清除Feed内容()
-            self.tabBarController?.selectedIndex=0
-        })
-    }
-    
+
     func 清除Feed内容() {
         self.帖子文字内容输入框.text=""
         self.帖子图片.image=UIImage(named: "图片固定背景")

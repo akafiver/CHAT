@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import SVProgressHUD
 
 class CommentsVC: UIViewController,UITextFieldDelegate {
@@ -91,14 +90,14 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     
     //TODO:- 点击发送按钮
     @IBAction func sendButton(_ sender: Any) {
-        let 评论引用 = Database.database().reference().child("comments")
+        let 评论引用 = 评论数据库地址().评论引用地址
         let 新评论ID = 评论引用.childByAutoId().key
         let 新评论引用 = 评论引用.child(新评论ID)
-        guard Auth.auth().currentUser != nil else{return}
-        let userID=Auth.auth().currentUser?.uid
-        新评论引用.updateChildValues(["uid":userID!,"commentText":评论输入框.text!], withCompletionBlock: {(error, ref) in
+        guard let 当前用户=用户数据库地址().当前用户 else {return}
+        let userID=当前用户.uid
+        新评论引用.updateChildValues(["uid":userID,"commentText":评论输入框.text!], withCompletionBlock: {(error, ref) in
             if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
-            let 帖子评论引用 = Database.database().reference().child("post-comments").child(self.帖子Id).child(新评论ID)
+            let 帖子评论引用 = 帖子评论数据库地址().帖子评论引用地址.child(self.帖子Id).child(新评论ID)
             帖子评论引用.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
                 print("评论成功")
@@ -116,7 +115,7 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     
     func loadComments(){
         loadingAnimat.startAnimating()
-        数据库地址.帖子评论地址.帖子评论引用地址.child(self.帖子Id).observe(.childAdded) { (快照:DataSnapshot) in
+        数据库地址.帖子评论地址.帖子评论引用地址.child(self.帖子Id).observe(.childAdded) { (快照) in
             数据库地址.评论地址.评论总览(withId:快照.key , completion: { (新评论) in
                 self.读取用户(uid: 新评论.uid!, completed: {
                     self.评论Array.append(新评论)

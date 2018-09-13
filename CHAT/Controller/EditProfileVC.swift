@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Firebase
 import FirebaseStorage
 import SVProgressHUD
 class EditProfileVc: UIViewController {
@@ -37,35 +36,11 @@ class EditProfileVc: UIViewController {
         view.endEditing(true)
         SVProgressHUD.show()
         if let 帖子图片 = self.已选择照片, let 图片数据 = UIImageJPEGRepresentation(帖子图片, 0.1) {
-            //指定文件唯一ID
-            let 用户头像图片String = Auth.auth().currentUser?.uid
-            //上传文件至Storage
-            let 储存引用 = Storage.storage().reference(forURL: "gs://chat-32b03.appspot.com").child("userAvatarImage").child(用户头像图片String!)
-            储存引用.putData(图片数据, metadata: nil){ (metadata, error) in
-                if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}else{print("上传成功", 用户头像图片String!);SVProgressHUD.dismiss()}
-                //向storage获取文件URL
-                储存引用.downloadURL(completion: { (url, error) in if error != nil {print("Failed to download url:", error!);return}
-                    print(url!,"URL获取成功")
-                    //上传文件URL至database
-                    let 用户头像图片Url = url?.absoluteString
-                    self.发送数据至数据库(url:用户头像图片Url!)
-                })
-            };return}
+            上传发送公式.上传头像图像至储存(头像数据: 图片数据) {
+                self.tabBarController?.selectedIndex=3
+            }
+        }
     }
-    
-    //TODO:- 上传文件URL至database
-    func 发送数据至数据库(url:String) {
-        let 头像引用 = Database.database().reference().child("users").child("profile").child((Auth.auth().currentUser?.uid)!)
-        guard Auth.auth().currentUser != nil else{return}
-        _=Auth.auth().currentUser?.uid
-        头像引用.updateChildValues(["userAvatarImageUrl": url], withCompletionBlock: {(error, ref) in
-            if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription);return}
-            print("ulr成功上传")
-            SVProgressHUD.showSuccess(withStatus: "Success")
-            self.tabBarController?.selectedIndex=3
-        })
-    }
-    
     
 }
 

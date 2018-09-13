@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import SVProgressHUD
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
@@ -46,45 +45,23 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     //MARK:- IBAction
     @IBAction func 点击注册按钮(_ sender: AnyObject) {
-        
-//        let 数据库引用 = Database.database().reference()
-        
         //TODO:- 注册资料输入检测
         guard let 用户名称输入 = 用户名称输入框.text, 用户名称输入 != "",
         let 邮箱输入 = 邮箱输入框.text, 邮箱输入 != "",
             let 密码输入 = 密码输入框.text, 密码输入 != ""
             else{AlertController.显示弹窗(self, tittle: "错误", message: "请输入完整资料");return}
-            
         SVProgressHUD.show()
-
         //TODO: 向Firebase数据库设置新用户，并跳转主页
-        Auth.auth().createUser(withEmail: 邮箱输入框.text!, password: 密码输入框.text!){ (user, error) in
-            if error != nil{
-                print(error!)
-                SVProgressHUD.dismiss()
-                AlertController.显示弹窗(self, tittle: "错误", message: (error?.localizedDescription)!)
-            }else{
-
-                self.创建用户profile()
+            登录公式.注册(用户名称: 用户名称输入框.text!, 邮箱: 邮箱输入框.text!, 密码: 密码输入框.text!, onSuccess: {
                 print("注册成功")
                 SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "前往首页", sender: self)
-                
-                }
+            }) { (error) in
+                print(error!)
+                SVProgressHUD.dismiss()
+                AlertController.显示弹窗(self, tittle: "错误", message: error!)
             }
         }
-
-    func 创建用户profile(){
-        let 用户数据库 = Database.database().reference().child("users")
-        let profileDictionary = ["email": Auth.auth().currentUser?.email, "userName": self.用户名称输入框.text!,"uid": Auth.auth().currentUser?.uid]
-        用户数据库.child("profile").child((Auth.auth().currentUser?.uid)!).updateChildValues(profileDictionary as Any as! [AnyHashable : Any]) { (error, ref) in
-            if error != nil {print(error!)}else {print("信息保存成功")
-            self.用户名称输入框.isEnabled = true
-            self.邮箱输入框.isEnabled = true
-            self.用户名称输入框.text = ""
-            }
-        }
-    }
     
     //TODO:- 点击回车收回键盘:
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -92,5 +69,24 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-    
 }
+
+
+
+
+
+
+
+
+//
+//    func 创建用户profile(){
+//        let 用户数据库 = Database.database().reference().child("users")
+//        let profileDictionary = ["email": Auth.auth().currentUser?.email, "userName": self.用户名称输入框.text!,"uid": Auth.auth().currentUser?.uid]
+//        用户数据库.child("profile").child((Auth.auth().currentUser?.uid)!).updateChildValues(profileDictionary as Any as! [AnyHashable : Any]) { (error, ref) in
+//            if error != nil {print(error!)}else {print("信息保存成功")
+//            self.用户名称输入框.isEnabled = true
+//            self.邮箱输入框.isEnabled = true
+//            self.用户名称输入框.text = ""
+//            }
+//        }
+//    }
