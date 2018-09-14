@@ -127,8 +127,8 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     }
     
     func 读取用户(uid:String, completed:  @escaping () -> Void ) {
-        数据库地址.用户地址.用户总览(withId: uid) { (单个用户) in
-            self.用户Array.append(单个用户)
+        数据库地址.用户地址.用户总览(withId: uid) { (用户) in
+            self.用户Array.append(用户)
             completed()
         }
     }

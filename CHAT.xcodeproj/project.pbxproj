@@ -40,6 +40,9 @@
 		4D9E78AB2140297B00C503B0 /* 样式管理.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E78AA2140297B00C503B0 /* 样式管理.swift */; };
 		4DA286EC2142BE9C00E6FCF1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA286EB2142BE9C00E6FCF1 /* AlertController.swift */; };
 		4DA286F02142EDD100E6FCF1 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA286EF2142EDD100E6FCF1 /* HomeVC.swift */; };
+		4DCD3372214B8B7F00F33427 /* DiscoverUsersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD3371214B8B7F00F33427 /* DiscoverUsersTVC.swift */; };
+		4DCD3374214B8BA300F33427 /* DiscoverUsersTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD3373214B8BA300F33427 /* DiscoverUsersTVCell.swift */; };
+		4DCD3378214BB8E400F33427 /* 关注数据库地址.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD3377214BB8E400F33427 /* 关注数据库地址.swift */; };
 		E5B764BA74F273FDF10651B6 /* Pods_CHAT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4798D87F0C0A8333399D2F86 /* Pods_CHAT.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +84,9 @@
 		4D9E78AA2140297B00C503B0 /* 样式管理.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "样式管理.swift"; sourceTree = "<group>"; };
 		4DA286EB2142BE9C00E6FCF1 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		4DA286EF2142EDD100E6FCF1 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		4DCD3371214B8B7F00F33427 /* DiscoverUsersTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUsersTVC.swift; sourceTree = "<group>"; };
+		4DCD3373214B8BA300F33427 /* DiscoverUsersTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUsersTVCell.swift; sourceTree = "<group>"; };
+		4DCD3377214BB8E400F33427 /* 关注数据库地址.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "关注数据库地址.swift"; sourceTree = "<group>"; };
 		EA7916D7BDBCD32C45848577 /* Pods-CHAT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHAT.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHAT/Pods-CHAT.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +145,7 @@
 				4D9A1C0E21453EDB007B8AED /* AddNewFeedVC.swift */,
 				4D32D15621403FEC00110620 /* WelcomePageViewController.swift */,
 				4DA286EF2142EDD100E6FCF1 /* HomeVC.swift */,
+				4DCD3371214B8B7F00F33427 /* DiscoverUsersTVC.swift */,
 				4D32D15C21405F8100110620 /* UserProfileViewController.swift */,
 				4D081F082147996E0087E53A /* EditProfileVC.swift */,
 				4D1DBFF5214012F0004D50CB /* ViewController.swift */,
@@ -151,6 +158,7 @@
 			children = (
 				4D1B8DCA2146C15600FBBEF1 /* HomeFeedableViewCell.swift */,
 				4D432D16214A5F4C001727B8 /* UserPorfileCardCRV.swift */,
+				4DCD3373214B8BA300F33427 /* DiscoverUsersTVCell.swift */,
 				4D7F3353214817A8005A2DA3 /* CommentsTVCell.swift */,
 				4D432D1A214AAE8A001727B8 /* UserFeedPhotoCVCell.swift */,
 				4D1DBFF7214012F0004D50CB /* Main.storyboard */,
@@ -183,6 +191,7 @@
 				4D4E2972214949EC009E4ACF /* 评论数据库地址.swift */,
 				4D432D18214A9450001727B8 /* 用户帖子数据库地址.swift */,
 				4D4E2974214949FD009E4ACF /* 帖子评论数据库地址.swift */,
+				4DCD3377214BB8E400F33427 /* 关注数据库地址.swift */,
 				4D4E297621494A1C009E4ACF /* 数据库地址.swift */,
 			);
 			name = "数据库提取";
@@ -345,12 +354,15 @@
 				4D32D15921404C5300110620 /* SignUpViewController.swift in Sources */,
 				4D081F07214794280087E53A /* 用户.swift in Sources */,
 				4D1DBFF6214012F0004D50CB /* ViewController.swift in Sources */,
+				4DCD3372214B8B7F00F33427 /* DiscoverUsersTVC.swift in Sources */,
 				4D9E78AB2140297B00C503B0 /* 样式管理.swift in Sources */,
 				4D32D15521403FAA00110620 /* LoginViewController.swift in Sources */,
 				4D4E296F214949BD009E4ACF /* 帖子数据库地址.swift in Sources */,
 				4D4E2975214949FD009E4ACF /* 帖子评论数据库地址.swift in Sources */,
+				4DCD3378214BB8E400F33427 /* 关注数据库地址.swift in Sources */,
 				4D4E2973214949EC009E4ACF /* 评论数据库地址.swift in Sources */,
 				4D081F092147996E0087E53A /* EditProfileVC.swift in Sources */,
+				4DCD3374214B8BA300F33427 /* DiscoverUsersTVCell.swift in Sources */,
 				4D32D15721403FEC00110620 /* WelcomePageViewController.swift in Sources */,
 				4D432D19214A9450001727B8 /* 用户帖子数据库地址.swift in Sources */,
 				4D7F335621481BB2005A2DA3 /* CommentsVC.swift in Sources */,

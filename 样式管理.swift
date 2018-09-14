@@ -49,4 +49,19 @@ class 样式管理:UIView {
         layer.layer.shadowOpacity=0.3
     }
     
+    static func 正在关注按钮样式(layer:UIButton){
+        layer.layer.borderWidth = 1
+        layer.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
+        layer.setTitleColor(UIColor.white, for: UIControlState.normal)
+        layer.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
+        layer.setTitle("关注", for: UIControlState.normal)
+    }
+    
+    static func 取消关注按钮样式(layer:UIButton){
+        layer.layer.borderWidth = 1
+        layer.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
+        layer.setTitleColor(UIColor.black, for: UIControlState.normal)
+        layer.backgroundColor = UIColor.clear
+        layer.setTitle("关注中", for: UIControlState.normal)
+    }
 }
