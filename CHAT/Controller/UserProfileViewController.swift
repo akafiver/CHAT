@@ -26,7 +26,7 @@ class UserProfileViewController: UIViewController {
     func 提取用户(){
         数据库地址.用户地址.当前用户总览 { (单个用户) in
             self.用户=单个用户
-            self.title=单个用户.用户名称
+            self.navigationItem.title=单个用户.用户名称
             self.用户页面CollectionView.reloadData()
         }
     }

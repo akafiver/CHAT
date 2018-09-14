@@ -41,12 +41,8 @@ class HomeFeedableViewCell: UITableViewCell {
         let 图片Url = URL(string: 图片UrlString!)
         self.帖子图片.sd_setImage(with: 图片Url, completed: { [weak self] (image, error, cacheType, imageURL) in
             self?.帖子图片.image = image })
-        //提取帖子唯一ID
-        数据库地址.帖子地址.帖子引用地址.child(self.帖子!.帖子id!).observeSingleEvent(of: .value, with: { (快照) in
-            if let 字典 = 快照.value as? [String: Any] {
-                let 帖子 = 帖子Model.帖子照片转换值(字典: 字典, 帖子辨识码: 快照.key)
-                self.更新赞(帖子值: 帖子)}
-        })
+        self.更新赞(帖子: self.帖子!)
+
         //根据帖子唯一ID提取帖子获赞数量
         数据库地址.帖子地址.帖子引用地址.child((帖子!.帖子id)!).observe(.childChanged, with: {快照 in
             if let 值 = 快照.value as? Int {self.获赞数量.text="\(值) 赞"}
@@ -69,7 +65,10 @@ class HomeFeedableViewCell: UITableViewCell {
     }
     @IBAction func likebutton(_ sender: Any) {
         数据库地址.帖子地址.增量Likes(帖子Id: (帖子?.帖子id)!, onSucess: { (帖子Model) in
-            self.更新赞(帖子值: 帖子Model)
+            self.更新赞(帖子: 帖子Model)
+            self.帖子?.所有赞 = 帖子Model.所有赞
+            self.帖子?.赞了 = 帖子Model.赞了
+            self.帖子?.赞计数 = 帖子Model.赞计数
         }) { (error) in
             SVProgressHUD.showError(withStatus: error)
         }
@@ -77,10 +76,10 @@ class HomeFeedableViewCell: UITableViewCell {
 
     }
     
-    func 更新赞(帖子值: 帖子Model) {
-        let 图片名字 = 帖子值.所有赞 == nil || !帖子值.赞了! ? "LikeButton" : "LikeButtonClick"
+    func 更新赞(帖子: 帖子Model) {
+        let 图片名字 = 帖子.所有赞 == nil || !帖子.赞了! ? "LikeButton" : "LikeButtonClick"
         获赞图标.setImage(UIImage(named:图片名字), for: UIControlState.normal)
-        guard let 计数 = 帖子值.赞计数 else {
+        guard let 计数 = 帖子.赞计数 else {
             return }
         if 计数 != 0 { 获赞数量.text="\(计数) 赞" } else { 获赞数量.text="" }
     }

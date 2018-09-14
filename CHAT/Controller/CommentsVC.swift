@@ -16,6 +16,7 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var 评论输入框: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var 空内容文字: UILabel!
     
     var 帖子Id:String!
     var 评论Array=[评论Model]()
@@ -114,12 +115,10 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
     }
     
     func loadComments(){
-        loadingAnimat.startAnimating()
         数据库地址.帖子评论地址.帖子评论引用地址.child(self.帖子Id).observe(.childAdded) { (快照) in
             数据库地址.评论地址.评论总览(withId:快照.key , completion: { (新评论) in
                 self.读取用户(uid: 新评论.uid!, completed: {
                     self.评论Array.append(新评论)
-                    self.loadingAnimat.stopAnimating()
                     self.评论Table.reloadData()
                 })
             })
@@ -141,6 +140,8 @@ class CommentsVC: UIViewController,UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+
 
 }
 
@@ -155,6 +156,21 @@ extension CommentsVC: UITableViewDataSource {
         cell.评论 = 评论集合
         cell.用户 = 用户集合
         return cell
+    }
+    func numberOfSections(in tableView: UITableView) -> Int{
+        var numOfSections: Int = 0
+        if 评论Array.count > 0{
+            numOfSections            = 1
+            tableView.backgroundView = nil
+        }else{
+            let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            noDataLabel.text          = "这篇帖子还没有评论喔~"
+            noDataLabel.textColor     = UIColor.gray
+            noDataLabel.textAlignment = .center
+            tableView.backgroundView  = noDataLabel
+            tableView.separatorStyle  = .none
+        }
+        return numOfSections
     }
 }
 

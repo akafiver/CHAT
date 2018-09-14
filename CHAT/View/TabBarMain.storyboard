@@ -204,6 +204,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoO-MG-4X7">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5kN-bO-Of7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -294,19 +301,14 @@
                                     <constraint firstItem="i1h-2c-oyM" firstAttribute="top" secondItem="IIV-9i-4Fs" secondAttribute="top" constant="10" id="gXy-zq-l51"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Izy-gf-9PQ">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5kN-bO-Of7" firstAttribute="top" secondItem="YLU-u9-DZd" secondAttribute="top" id="04P-jG-Qzk"/>
                             <constraint firstItem="IIV-9i-4Fs" firstAttribute="top" secondItem="5kN-bO-Of7" secondAttribute="bottom" id="4BL-Nk-idH"/>
                             <constraint firstItem="5kN-bO-Of7" firstAttribute="trailing" secondItem="heJ-Ej-QdO" secondAttribute="trailing" id="AgX-at-oBl"/>
-                            <constraint firstItem="Izy-gf-9PQ" firstAttribute="centerX" secondItem="YLU-u9-DZd" secondAttribute="centerX" id="Eha-Od-RAx"/>
                             <constraint firstItem="IIV-9i-4Fs" firstAttribute="leading" secondItem="heJ-Ej-QdO" secondAttribute="leading" id="Eoi-Hr-85m"/>
                             <constraint firstItem="5kN-bO-Of7" firstAttribute="top" secondItem="YLU-u9-DZd" secondAttribute="top" id="LvZ-uU-N1k"/>
-                            <constraint firstItem="Izy-gf-9PQ" firstAttribute="centerY" secondItem="YLU-u9-DZd" secondAttribute="centerY" id="YOU-UG-6Bj"/>
                             <constraint firstItem="IIV-9i-4Fs" firstAttribute="trailing" secondItem="heJ-Ej-QdO" secondAttribute="trailing" id="c5c-y9-gSj"/>
                             <constraint firstItem="5kN-bO-Of7" firstAttribute="leading" secondItem="heJ-Ej-QdO" secondAttribute="leading" id="qzP-fZ-Xaq"/>
                             <constraint firstItem="heJ-Ej-QdO" firstAttribute="bottom" secondItem="IIV-9i-4Fs" secondAttribute="bottom" id="v2o-BH-w2E"/>
@@ -325,8 +327,8 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="heightConstraint" destination="v2o-BH-w2E" id="pJm-PZ-hAq"/>
-                        <outlet property="loadingAnimat" destination="Izy-gf-9PQ" id="Bc5-NJ-cBJ"/>
                         <outlet property="sendButton" destination="bnO-GP-q8t" id="vie-c8-IfS"/>
+                        <outlet property="空内容文字" destination="qoO-MG-4X7" id="i1R-jt-PcA"/>
                         <outlet property="评论Table" destination="5kN-bO-Of7" id="81x-7r-32i"/>
                         <outlet property="评论输入框" destination="i1h-2c-oyM" id="Lr0-Up-74p"/>
                     </connections>

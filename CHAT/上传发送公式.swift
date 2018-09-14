@@ -29,9 +29,8 @@ class 上传发送公式{
     }
 
     static func 发送数据至数据库(url:String,帖子文字内容:String, onSuccess: @escaping () -> Void) {
-        let 帖子引用 = 数据库地址.帖子地址.帖子引用地址
-        let 新帖子ID = 帖子引用.childByAutoId().key
-        let 新帖子引用 = 帖子引用.child(新帖子ID)
+        let 新帖子ID = 数据库地址.帖子地址.帖子引用地址.childByAutoId().key
+        let 新帖子引用 = 数据库地址.帖子地址.帖子引用地址.child(新帖子ID)
         guard Auth.auth().currentUser != nil else{return}
         let 当前用户ID=Auth.auth().currentUser?.uid
         新帖子引用.updateChildValues(["uid":当前用户ID!,"photoUrl": url,"text":帖子文字内容], withCompletionBlock: {(error, ref) in
@@ -39,6 +38,7 @@ class 上传发送公式{
                 return
             }
             print("ulr成功上传")
+            Database.database().reference().child("feed").child(数据库地址.用户地址.当前用户!.uid).child(新帖子ID).setValue(true)
             let 我的帖子引用=数据库地址.用户帖子地址.用户帖子引用地址.child(当前用户ID!).child(新帖子ID)
             我的帖子引用.setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {SVProgressHUD.showError(withStatus: error!.localizedDescription)

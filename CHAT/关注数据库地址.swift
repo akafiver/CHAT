@@ -13,11 +13,29 @@ class 关注数据库地址 {
     var 关注中引用地址 = Database.database().reference().child("following")
     
     func 关注动作(withUser id: String) {
+        
+        数据库地址.用户帖子地址.用户帖子引用地址.child(id).observeSingleEvent(of: .value, with: {
+            快照 in
+            if let 字典 = 快照.value as? [String: Any] {
+                for key in 字典.keys {
+                    Database.database().reference().child("feed").child(数据库地址.用户地址.当前用户!.uid).child(key).setValue(true)
+                }
+            }
+        })
         关注者引用地址.child(id).child(数据库地址.用户地址.当前用户!.uid).setValue(true)
         关注者引用地址.child(数据库地址.用户地址.当前用户!.uid).child(id).setValue(true)
     }
     
     func 取消关注动作(withUser id: String) {
+        数据库地址.用户帖子地址.用户帖子引用地址.child(id).observeSingleEvent(of: .value, with: {
+            快照 in
+            if let 字典 = 快照.value as? [String: Any] {
+                for key in 字典.keys {
+                    Database.database().reference().child("feed").child(数据库地址.用户地址.当前用户!.uid).child(key).removeValue()
+                }
+            }
+        })
+
         关注者引用地址.child(id).child(数据库地址.用户地址.当前用户!.uid).setValue(NSNull())
         关注者引用地址.child(数据库地址.用户地址.当前用户!.uid).child(id).setValue(NSNull())
     }

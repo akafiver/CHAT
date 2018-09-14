@@ -45,13 +45,20 @@ class DiscoverUsersTVCell: UITableViewCell {
     }
     
     @objc func 关注动作() {
-        数据库地址.关注地址.关注动作(withUser: 用户!.用户ID!)
-        配置取消关注按钮()
+        if 用户!.正在关注! == false{
+            数据库地址.关注地址.关注动作(withUser: 用户!.用户ID!)
+            配置取消关注按钮()
+            用户!.正在关注! = true
+        }
+
     }
     
     @objc func 取消关注动作() {
-        数据库地址.关注地址.取消关注动作(withUser: 用户!.用户ID!)
-        配置关注按钮()
+        if 用户!.正在关注! == true{
+            数据库地址.关注地址.取消关注动作(withUser: 用户!.用户ID!)
+            配置关注按钮()
+            用户!.正在关注! = false
+        }
     }
 
     override func awakeFromNib() {

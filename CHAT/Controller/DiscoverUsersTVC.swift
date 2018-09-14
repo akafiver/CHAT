@@ -22,13 +22,16 @@ class DiscoverUsersTVC: UIViewController {
     
     func 读取用户() {
         数据库地址.用户地址.多个用户总览 { (用户) in
-            self.正在关注(用户Id: 用户.用户ID!, completed: { (值) in
-                用户.正在关注=值
-                self.用户Array.append(用户)
-                self.tableView.reloadData()
-            })
+            if 用户.用户ID != 用户数据库地址().当前用户?.uid {
+                self.正在关注(用户Id: 用户.用户ID!, completed: { (值) in
+                    用户.正在关注=值
+                    self.用户Array.append(用户)
+                    self.tableView.reloadData()
+                })
+            }
         }
     }
+    
     func 正在关注(用户Id: String, completed: @escaping (Bool) -> Void) {
         数据库地址.关注地址.正在关注(用户Id: 用户Id, completed: completed)
     }

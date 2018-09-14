@@ -28,12 +28,20 @@ class HomeVC: UIViewController,UITableViewDelegate {
     
     func 加载帖子(){
         loadingAnimat.startAnimating()
-        数据库地址.帖子地址.帖子总览 { (新帖子) in
-            self.读取用户(uid: 新帖子.uid!, completed: {
-                self.帖子Array.append(新帖子)
+        数据库地址.Feed地址.Feed总览(withId: 数据库地址.用户地址.当前用户!.uid) { (帖子) in
+            guard let 帖子Id = 帖子.uid else {
+                return
+            }
+            self.读取用户(uid: 帖子Id, completed: {
+                self.帖子Array.append(帖子)
                 self.loadingAnimat.stopAnimating()
                 self.tableView.reloadData()
             })
+        }
+        
+        数据库地址.Feed地址.Feed移除总览(withId: 数据库地址.用户地址.当前用户!.uid) { (key) in
+            self.帖子Array = self.帖子Array.filter { $0.帖子id != key }
+            self.tableView.reloadData()
         }
     }
     
@@ -94,4 +102,20 @@ extension HomeVC:UITableViewDataSource{
 //        样式管理.图片样式(layer: cell.feedImgV)
         return cell
     }
+    
+//    func numberOfSections(in tableView: UITableView) -> Int{
+//        var numOfSections: Int = 0
+//        if 帖子Array.count > 0{
+//            numOfSections            = 1
+//            tableView.backgroundView = nil
+//        }else{
+//            let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+//            noDataLabel.text          = "No data available"
+//            noDataLabel.textColor     = UIColor.black
+//            noDataLabel.textAlignment = .center
+//            tableView.backgroundView  = noDataLabel
+//            tableView.separatorStyle  = .none
+//        }
+//        return numOfSections
+//    }
 }
